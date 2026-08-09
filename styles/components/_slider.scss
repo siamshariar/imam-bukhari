@@ -1,0 +1,257 @@
+.slider-image-wrapper {
+  // position: relative;
+}
+
+.slider-image-wrapper img {
+  object-fit: cover;
+  object-position: center;
+  display: inline-block !important;
+  aspect-ratio: 3/2;
+}
+
+// Arrow
+
+.slider-arrow-1 {
+  background: hsla(0, 0%, 100%, 0.8);
+  cursor: pointer;
+  height: 80px;
+  width: 40px;
+  transition: background 0.4s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider-arrow-1:hover {
+  background: rgba(8, 30, 46, 0.8);
+}
+
+.next-arrow-1 {
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+}
+
+.prev-arrow-1 {
+  position: absolute;
+  left: 0;
+  z-index: 9999;
+}
+
+.next-arrow-1::before {
+  content: url("/img/icons/arrow_right.svg");
+  height: 23px;
+  width: 11px;
+}
+.prev-arrow-1::before {
+  content: url("/img/icons/arrow_left.svg");
+  height: 23px;
+  width: 11px;
+}
+
+.next-arrow-1:hover {
+  &::before {
+    content: url("/img/icons/arrow_right_white.svg");
+  }
+}
+
+.prev-arrow-1:hover {
+  &::before {
+    content: url("/img/icons/arrow_left_white.svg");
+  }
+}
+
+// ImageTextSlider
+
+.imageTextSlider__container {
+  display: flex;
+  // max-width: 1217px;
+  // margin: 0 auto;
+}
+
+.imageTextSlider__container > * {
+  width: 50%;
+  align-self: center;
+}
+
+.imageTextSlider__column:nth-of-type(2) {
+  padding: 3% 8%;
+  position: relative;
+}
+
+.imageTextSlider {
+  background-color: #edece9;
+  &__img img {
+    display: inline-block !important;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 3/2;
+  }
+
+  &__text {
+  }
+
+  &__text-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__subTitle {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+.imageTextSlider__controls {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10%;
+}
+
+.custom-slider-arrow {
+  border: none;
+  cursor: pointer;
+}
+
+.imageTextSlider__arrow.prev {
+}
+
+.imageTextSlider__arrow.prev:hover {
+  &::before {
+    transition: transform 0.4s linear;
+    transform: scale(0.7) translateX(-8px);
+  }
+}
+
+.imageTextSlider__arrow.next:hover {
+  &::before {
+    transition: transform 0.4s linear;
+    transform: scale(0.7) translateX(8px);
+  }
+}
+
+.imageTextSlider__arrow.prev::before {
+  content: url("/img/icons/arrow_left.svg");
+  height: 23px;
+  width: 11px;
+  transform: scale(0.7);
+  padding: 1px;
+  display: block;
+  transition: transform 0.4s linear;
+}
+
+.imageTextSlider__arrow.next::before {
+  content: url("/img/icons/arrow_right.svg");
+  height: 23px;
+  width: 11px;
+  transform: scale(0.7);
+  padding: 1px;
+  display: block;
+  transition: transform 0.4s linear;
+}
+
+/* Add this to your existing CSS */
+
+.imageTextSlider__dots {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageTextSlider__dot {
+  width: 10px;
+  height: 10px;
+  background-color: #0000004f;
+  border-radius: 50%;
+  border: none;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.imageTextSlider__dot:hover {
+  background-color: #000000ce;
+}
+
+.imageTextSlider__dot.active {
+  background-color: #000000ce; /* Active dot color */
+}
+
+@media screen and (max-width: 1023px) {
+  .imageTextSlider {
+    &__container {
+      flex-direction: column;
+    }
+
+    &__column {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .imageTextSlider__dots {
+    gap: 0.5rem;
+  }
+  .imageTextSlider__dot {
+    width: 8px;
+    height: 8px;
+  }
+  .imageTextSlider {
+    padding-bottom: 60px; // TODO: Temp fix
+  }
+}
+
+// ImageTitleSlider
+///////////////////////////////////////
+
+.imageTitleSlider {
+  margin-bottom: 8rem;
+  position: relative;
+  background: #fff;
+  &__content {
+    padding: 0 0.5rem;
+  }
+
+  &__img {
+    height: 50vh;
+  }
+  &__img img {
+    height: 100%;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0.5rem 0;
+  }
+}
+
+// ImageTitleTopSlider
+
+.imageTitleTopSlider {
+  text-align: center;
+
+  &__slider {
+  }
+}
+
+.imageTitleSlider__wrapper {
+  background-color: #f8f8f8;
+}

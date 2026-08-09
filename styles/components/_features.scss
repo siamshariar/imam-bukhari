@@ -1,0 +1,82 @@
+.bukhari-features {
+  padding: 2rem 0;
+
+  &__intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    row-gap: 1.5rem;
+    column-gap: 1rem;
+    align-items: start !important;
+    justify-items: center;
+  }
+
+  &__wrapper {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// Feature Card
+
+.bukhari-feature {
+  text-align: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  // gap: 1rem;
+  padding: 1rem;
+  height: 100%;
+  width: 100%;
+  //box-shadow: 2px 2px 5px rgba(#000, 0.1), 2px 2px 17px rgba(#000, 0.25),
+  //  2px 2px 25px rgba(#000, 0.3);
+  background-color: #ffffff;
+
+  &__icon img {
+    height: 4.5rem;
+    width: 4.5rem;
+    display: block;
+    margin: 0 auto;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+  }
+}
+
+//////// FeatureList ///////////
+
+.featureList {
+  padding: 2rem 0;
+  &__para {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+    max-width: 800px;
+  }
+  &__icon {
+    width: 18px;
+
+    .cls-1 {
+      fill: #fff;
+    }
+
+    .cls-2 {
+      fill: #314769;
+    }
+  }
+
+  &__list li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+  }
+}

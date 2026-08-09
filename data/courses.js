@@ -1,0 +1,96 @@
+import { course1Content } from "./course-1";
+import { course2Content } from "./course-2";
+import { course3Content } from "./course-3";
+import { course4Content } from "./course-4";
+import { course5Content } from "./course-5";
+import { course6Content } from "./course-6";
+
+export const courses = [
+  {
+    id: 1,
+    home: true,
+    imagePath: "",
+    title: "কুল্লিয়া (ব্যাচেলর ইন ইসলামিক স্টাডিজ)",
+    code: "",
+    slug: "kulliya",
+    excerpt: "কুল্লিয়া (ব্যাচেলর ইন ইসলামিক স্টাডিজ)",
+    description: ``,
+    purchaseLink: "",
+    isNotAvailable: false,
+    notAvailableText: "শীঘ্রই আসছে",
+    content: course1Content,
+  },
+  {
+    id: 2,
+    home: true,
+    imagePath: "",
+    title: "সানাবিয়্যাহ (উচ্চ মাধ্যমিক)",
+    code: "",
+    slug: "sanabiyah",
+    excerpt: "সানাবিয়্যাহ (উচ্চ মাধ্যমিক)",
+    description: ``,
+    purchaseLink: "",
+    isNotAvailable: false,
+    notAvailableText: "",
+    content: course2Content,
+  },
+  {
+    id: 3,
+    home: true,
+    imagePath: "",
+    title: "একাডেমিক আরবি ভাষা কোর্স",
+    code: "",
+    slug: "academic-arabic-language",
+    excerpt: `আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল
+      কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ
+      লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ
+      কোর্স) অফার করেছে।`,
+    description: ``,
+    purchaseLink: "",
+    isNotAvailable: false,
+    notAvailableText: "",
+    content: course3Content,
+  },
+  {
+    id: 4,
+    home: true,
+    imagePath: "",
+    title: "জেনারেল আরবি ভাষা কোর্স",
+    code: "",
+    slug: "general-arabic-language",
+    excerpt: `আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ আল-‘আম্মাহ’ (জেনারেল অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে।`,
+    description: ``,
+    purchaseLink: "",
+    isNotAvailable: false,
+    notAvailableText: "",
+    content: course4Content,
+  },
+  {
+    id: 5,
+    home: true,
+    imagePath: "",
+    title: "শিক্ষক প্রশিক্ষণ কোর্স",
+    code: "",
+    slug: "teachers-training",
+    excerpt: "শিক্ষক প্রশিক্ষণ কোর্স",
+    description: ``,
+    purchaseLink: "",
+    isNotAvailable: false,
+    notAvailableText: "",
+    content: course5Content,
+  },
+  {
+    id: 6,
+    home: true,
+    imagePath: "",
+    title: "রিসার্চ সেন্টার (গবেষণা কেন্দ্র)",
+    code: "",
+    slug: "research-center",
+    excerpt: "রিসার্চ সেন্টার (গবেষণা কেন্দ্র)",
+    description: ``,
+    purchaseLink: "",
+    isNotAvailable: false,
+    notAvailableText: "",
+    content: course6Content,
+  },
+];

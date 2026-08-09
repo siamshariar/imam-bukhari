@@ -1,0 +1,30 @@
+.content_page_top_name {
+  font-size: 25px;
+}
+.content_page_top_image {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.content_page_top_image_inner {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+.content_page_top_image_inner img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content_page_bottom {
+  padding-top: 0;
+}
+.content_page_bottom p {
+  margin-bottom: 0;
+}

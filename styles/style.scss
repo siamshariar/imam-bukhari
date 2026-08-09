@@ -1,0 +1,40 @@
+@use "fonts";
+@use "variables";
+@use "utils";
+@use "reset";
+@use "base";
+
+@use "header";
+
+@use "post-card";
+@use "sidebar";
+
+@use "home/home-about";
+@use "home/home-articles";
+@use "home/home-banner";
+@use "home/home-newsletter";
+@use "home/home";
+
+@use "footer";
+@use "footerTwo";
+
+// pages styles
+@use "pages/category";
+@use "pages/organization-list";
+@use "pages/blog-detail";
+@use "pages/contact";
+@use "pages/about";
+@use "pages/content";
+
+// button
+@use "components/button";
+
+// Slider
+@use "components/slider";
+
+// block
+@use "components/blockA";
+@use "components/textBlock";
+@use "components/newsletter";
+@use "components/features";
+@use "components/iframeVideo";

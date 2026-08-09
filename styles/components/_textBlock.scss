@@ -1,0 +1,134 @@
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+
+  &__title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
+
+  &__para {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    font-weight: 400;
+    max-width: 56rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .textBlock {
+    &__para {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+// TitleListBlock
+
+.titleListBlock {
+  margin-top: 3rem;
+  &__title {
+    text-align: center;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+
+    li {
+      font-size: 1rem;
+      padding: 0.5rem;
+      // box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+      background: #ffffff;
+      box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+        rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    }
+  }
+}
+
+// AddressDetails
+
+.addressDetail {
+  margin: 3rem auto;
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border: 1px solid gray;
+    padding: 2rem;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__right {
+    align-self: flex-end;
+  }
+
+  &__img {
+    width: 6rem;
+  }
+
+  &__icon {
+    width: 18px;
+  }
+
+  & ul li {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.35rem 0;
+  }
+}
+
+// TextBlockB
+
+.textBlockB {
+  padding: 5rem 0;
+  //background-color: #fff;
+  background-color: #f8f8f8;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__title {
+    font-size: clamp(2.2rem, calc(3vw + 1px), 48px);
+    margin-bottom: 1rem;
+  }
+
+  &__subTitle {
+    font-size: clamp(12px, calc(0.5vw + 1px), 120px);
+    text-transform: uppercase;
+    letter-spacing: 3.2px;
+    line-height: 1;
+    margin: 0;
+  }
+
+  &__para {
+    margin: 0;
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .textBlockB {
+    padding: 2rem 0;
+  }
+}

@@ -1,0 +1,135 @@
+////////////// Footer Two ////////////////////
+///
+
+.footerTwo {
+  width: 100%;
+}
+
+.pre-footer {
+  background-color: #edece9;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 64px 0;
+    text-align: center;
+  }
+
+  &__heading {
+    color: #081e2e;
+    font-size: 18px;
+    font-weight: 500;
+    //letter-spacing: 3.5px;
+    line-height: 22px;
+    margin-bottom: 17px;
+    text-transform: uppercase;
+  }
+
+  &__details > ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__socials a img {
+    width: 30px;
+  }
+}
+
+.post-footer {
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__left {
+    align-self: stretch;
+    flex: 0 0 50%;
+    background-color: #cbcbc8;
+    padding: 24px 0;
+  }
+
+  &__right {
+    align-self: stretch;
+    flex: 0 0 50%;
+    background-color: #fff;
+    padding: 24px 0;
+  }
+
+  &__left ul,
+  &__right ul {
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__left ul li,
+  &__right ul li {
+    font-family: futura-pt, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: normal;
+    text-align: left;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  &__left ul li::before,
+  &__right ul li::before {
+    display: block;
+    position: absolute;
+    content: "";
+    height: 1px;
+    width: 0%;
+    background-color: #000;
+    bottom: -0.5rem;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &__left ul li:hover::before,
+  &__right ul li:hover::before {
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &__copyright {
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .post-footer {
+    &__left ul li,
+    &__right ul li {
+      margin-bottom: 1rem;
+      flex: 0 0 50%;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .pre-footer {
+    &__wrapper {
+      flex-direction: column;
+    }
+  }
+
+  .post-footer {
+    &__left,
+    &__right {
+      flex: 0 0 100%;
+    }
+  }
+}
