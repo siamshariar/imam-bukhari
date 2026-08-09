@@ -6,6 +6,7 @@ import ContactForm from "../components/pages/contact/Form";
 import { getContactInfo, getMenu, filterMetaInfo } from "../lib/fetch3";
 
 export default function Contact({ contactInfo, pageInfo }) {
+  contactInfo = contactInfo ?? {};
   return (
     <>
       <Meta
