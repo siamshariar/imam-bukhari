@@ -87,5 +87,6 @@ export async function getStaticProps(context) {
       logo: settings?.logo || null,
       favicon: settings?.favicon || null,
     },
+    revalidate: 60,
   };
 }

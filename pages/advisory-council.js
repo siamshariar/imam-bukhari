@@ -48,5 +48,6 @@ export async function getStaticProps() {
     props: {
       advisoryCouncils,
     },
+    revalidate: 60,
   };
 }
