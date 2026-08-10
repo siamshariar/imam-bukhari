@@ -16,7 +16,7 @@ module.exports = {
       "www.ImamBukhariTrust.com",
       "i.ytimg.com",
       "imam-bukhari-admin-production.up.railway.app",
-      "imam-bukhari-web-latest.vercel.app"
+      "imam-bukhari-web-latest.vercel.app",
     ],
   },
 };
