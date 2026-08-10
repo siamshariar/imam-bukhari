@@ -18,7 +18,6 @@ const DonateRichText = ({ content }) => {
         .donate-content h2,
         .donate-content h3 {
           margin: 1rem 0 0.5rem;
-          font-weight: bold;
           color: #2c5530;
         }
         .donate-content h2 {

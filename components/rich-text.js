@@ -39,6 +39,10 @@ const RichText = ({ content }) => {
         </HeadingTag>
       );
     } else if (block.type === "paragraph") {
+      const isBlank = block.children.every(
+        (child) => child.type === "text" && !child.text?.trim()
+      );
+      if (isBlank) return null;
       return (
         <p key={`paragraph-${blockIndex}`}>
           {block.children.map((child, index) => renderChild(child, `paragraph-${blockIndex}-${index}`))}
