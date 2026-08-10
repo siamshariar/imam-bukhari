@@ -10,10 +10,10 @@ export default function BlockC({ data, darulHadis }) {
   const subtitle = darulHadis?.subtitle || text?.subTitle;
   const message = darulHadis?.message || darulHadis?.excerpt || "";
   
-  // Prioritize static images over API images
+  // Prioritize API images over static fallback images
   const apiImages = darulHadis?.sliderImages || [];
   const staticImages = images || [];
-  
+
   // Filter out localhost URLs from all images
   const filterLocalhost = (imageArray) => {
     return imageArray.filter(img => {
@@ -21,11 +21,11 @@ export default function BlockC({ data, darulHadis }) {
       return !imageUrl.includes('localhost');
     });
   };
-  
+
   const filteredStaticImages = filterLocalhost(staticImages);
   const filteredApiImages = filterLocalhost(apiImages);
-  
-  const blockImages = filteredStaticImages.length > 0 ? filteredStaticImages : filteredApiImages;
+
+  const blockImages = filteredApiImages.length > 0 ? filteredApiImages : filteredStaticImages;
   
   const styles = {
     maxWidth: fullWidth ? "100%" : "1216px",

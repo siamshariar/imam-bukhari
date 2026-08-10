@@ -10,6 +10,7 @@ import MemberDetail from "../../components/pages/members/Detail";
 // import Share from "../../components/share";
 
 export default function OrganizationDetail({ detail }) {
+  if (!detail) return null;
   return (
     <>
       <Meta

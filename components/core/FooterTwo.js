@@ -1,4 +1,23 @@
+import useSWR from "swr";
+import { getSettings } from "../../lib/apiV/settings";
+
+const FALLBACK = {
+  phone: "+880 1852808554",
+  email: "bukharimasjid.bd@gmail.com",
+  facebookUrl: "https://www.facebook.com/imambukharitrustbd",
+  xUrl: "https://twitter.com/ImamBukhTrust",
+  youtubeUrl: "https://www.youtube.com/@ImamBukhariTrustOfficial",
+};
+
 export default function FooterTwo() {
+  const { data: settings } = useSWR("footer-settings", getSettings);
+
+  const phone = settings?.phone || FALLBACK.phone;
+  const email = settings?.email || FALLBACK.email;
+  const facebookUrl = settings?.facebookUrl || FALLBACK.facebookUrl;
+  const xUrl = settings?.xUrl || FALLBACK.xUrl;
+  const youtubeUrl = settings?.youtubeUrl || FALLBACK.youtubeUrl;
+
   return (
     <>
       <section className="footerTwo">
@@ -9,16 +28,16 @@ export default function FooterTwo() {
                 <div className="pre-footer__heading">যোগাযোগ করুন</div>
                 <ul>
                   <li>
-                    <a className="pre-footer__telephone" href="tel:01852808554">
-                      +880 1852808554
+                    <a className="pre-footer__telephone" href={`tel:${phone.replace(/[^0-9+]/g, "")}`}>
+                      {phone}
                     </a>
                   </li>
                   <li>
                     <a
                       className="pre-footer__telephone"
-                      href="mailto:bukharimasjid.bd@gmail.com"
+                      href={`mailto:${email}`}
                     >
-                      bukharimasjid.bd@gmail.com
+                      {email}
                     </a>
                   </li>
                 </ul>
@@ -29,18 +48,18 @@ export default function FooterTwo() {
                 <div className="pre-footer__heading">সোস্যাল মিডিয়া</div>
                 <div className="pre-footer__socials">
                   <a
-                    href="https://www.facebook.com/imambukharitrustbd"
+                    href={facebookUrl}
                     target="_blank"
                   >
                     <img src="/img/icons/facebook.png" alt="facebook icon" />
                   </a>
 
-                  <a href=" https://twitter.com/ImamBukhTrust" target="_blank">
+                  <a href={xUrl} target="_blank">
                     <img src="/img/icons/twitter.png" alt="twitter icon" />
                   </a>
 
                   <a
-                    href="https://www.youtube.com/@ImamBukhariTrustOfficial"
+                    href={youtubeUrl}
                     target="_blank"
                   >
                     <img src="/img/icons/youtube.png" alt="youtube icon" />

@@ -10,10 +10,10 @@ export default function BlockB({ data, kulliyatulIslamia }) {
   const subtitle = kulliyatulIslamia?.subtitle || text?.subTitle;
   const message = kulliyatulIslamia?.message || kulliyatulIslamia?.excerpt || "";
   
-  // Prioritize static images over API images
+  // Prioritize API images over static fallback images
   const apiImages = kulliyatulIslamia?.sliderImages || [];
   const staticImages = images || [];
-  
+
   // Filter out localhost URLs from all images
   const filterLocalhost = (imageArray) => {
     return imageArray.filter(img => {
@@ -21,11 +21,11 @@ export default function BlockB({ data, kulliyatulIslamia }) {
       return !imageUrl.includes('localhost');
     });
   };
-  
+
   const filteredStaticImages = filterLocalhost(staticImages);
   const filteredApiImages = filterLocalhost(apiImages);
-  
-  const blockImages = filteredStaticImages.length > 0 ? filteredStaticImages : filteredApiImages;
+
+  const blockImages = filteredApiImages.length > 0 ? filteredApiImages : filteredStaticImages;
   
   const styles = {
     maxWidth: fullWidth ? "100%" : "1216px",

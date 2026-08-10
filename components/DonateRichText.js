@@ -3,44 +3,12 @@ import RichText from "./rich-text";
 const DonateRichText = ({ content }) => {
   if (!content) return null;
 
-  // Process content to identify headers and structure
-  const processedContent = content.map((block, index) => {
-    if (block.type === "paragraph" && block.children) {
-      const text = block.children
-        .map(child => child.text || '')
-        .join('')
-        .trim();
-
-      // Identify headers by content patterns
-      const isMainHeader = text.includes('প্রকল্পের জন্য') || 
-                          text.includes('পাঠানোর নিয়ম') ||
-                          text.includes('প্রকল্পসমূহের জন্য');
-      
-      const isSubHeader = text.includes('একাউন্ট') && !text.includes('।');
-      
-      if (isMainHeader) {
-        return {
-          ...block,
-          type: "heading",
-          level: 2
-        };
-      } else if (isSubHeader) {
-        return {
-          ...block,
-          type: "heading", 
-          level: 3
-        };
-      }
-    }
-    return block;
-  });
-
   return (
     <div className="donate-content">
       <style jsx>{`
         .donate-content p {
           font-size: 18px;
-          margin-bottom: 1rem;
+          margin: 0 0 0.75rem;
           line-height: 1.6;
         }
         .donate-content p:empty {
@@ -49,8 +17,7 @@ const DonateRichText = ({ content }) => {
         .donate-content h1,
         .donate-content h2,
         .donate-content h3 {
-          margin-top: 2rem;
-          margin-bottom: 1rem;
+          margin: 1rem 0 0.5rem;
           font-weight: bold;
           color: #2c5530;
         }
@@ -61,8 +28,6 @@ const DonateRichText = ({ content }) => {
         }
         .donate-content h3 {
           font-size: 20px;
-          margin-top: 1.5rem;
-          margin-bottom: 0.5rem;
         }
         .donate-content strong,
         .donate-content b {
@@ -70,7 +35,7 @@ const DonateRichText = ({ content }) => {
           font-weight: bold;
         }
       `}</style>
-      <RichText content={processedContent} />
+      <RichText content={content} />
     </div>
   );
 };

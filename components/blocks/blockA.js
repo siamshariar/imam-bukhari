@@ -27,10 +27,10 @@ export default function BlockA({ data, imamBukhariMasjid, darulHadithSummaryData
     maxWidth: fullWidth ? "100%" : "1216px",
   };
 
-  // Ensure we have images to display - prioritize static images over API images
+  // Ensure we have images to display - prioritize API images over static fallback images
   const apiImages = summaryData.sliderImages || [];
   const staticImages = images || [];
-  
+
   // Filter out localhost URLs from all images
   const filterLocalhost = (imageArray) => {
     return imageArray.filter(img => {
@@ -38,11 +38,11 @@ export default function BlockA({ data, imamBukhariMasjid, darulHadithSummaryData
       return !imageUrl.includes('localhost');
     });
   };
-  
+
   const filteredStaticImages = filterLocalhost(staticImages);
   const filteredApiImages = filterLocalhost(apiImages);
-  
-  const displayImages = filteredStaticImages.length > 0 ? filteredStaticImages : filteredApiImages;
+
+  const displayImages = filteredApiImages.length > 0 ? filteredApiImages : filteredStaticImages;
 
   return (
     <div className="blockA">

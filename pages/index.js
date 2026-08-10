@@ -2,7 +2,7 @@ import {
   getHomeCourses,
   getAdvisoryCouncils,
 } from "../lib/fetch2";
-import { getHomeBannerData, getAboutShortContent, getImamBukhariMasjid, getKulliyatulIslamia, getDarulHadis, getChairmanMessage, getMembers, getHomeFaqs, getOurProjectsData, getRecentActivitiesData, getHomeSliderData } from "../lib/fetch3";
+import { getHomeBannerData, getAboutShortContent, getImamBukhariMasjid, getKulliyatulIslamia, getDarulHadis, getChairmanMessage, getMembers, getHomeFaqs, getOurProjectsData, getRecentActivitiesData, getHomeSliderData, getMenu, filterMetaInfo } from "../lib/fetch3";
 import { getSettings } from "../lib/apiV/settings";
 import Meta from "../components/core/Meta";
 import HomeBanner from "../components/pages/home/Banner";
@@ -37,7 +37,7 @@ import Newsletter from "../components/blocks/newsletter";
 import IframeVideo from "../components/blocks/iframeVideo";
 import parse from "html-react-parser";
 
-export default function Home({ bannerData, aboutContent, imamBukhariMasjid, kulliyatulIslamia, darulHadis, chairmanMessage, members, courses, faqs, advisoryCouncils, ourProjectsData, recentActivitiesData, homeSliderData, logo, favicon }) {
+export default function Home({ bannerData, aboutContent, imamBukhariMasjid, kulliyatulIslamia, darulHadis, chairmanMessage, members, courses, faqs, advisoryCouncils, ourProjectsData, recentActivitiesData, homeSliderData, logo, favicon, pageInfo }) {
   // Extract individual projects from the API data
   const project1 = ourProjectsData?.find(p => p.id === 1);
   const project2 = ourProjectsData?.find(p => p.id === 2);
@@ -54,8 +54,8 @@ export default function Home({ bannerData, aboutContent, imamBukhariMasjid, kull
   return (
     <>
       <Meta
-        title=""
-        description="ইমাম বুখারী ট্রাস্ট বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান"
+        title={pageInfo?.metaInfo?.title ?? ""}
+        description={pageInfo?.metaInfo?.description ?? "ইমাম বুখারী ট্রাস্ট বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান"}
         url="www.ImamBukhariTrust.com"
         image={logo?.url ? `${apiServer}${logo.url}` : `${server}/img/logo/logo.png`}
         type="website"
@@ -149,13 +149,13 @@ export async function getStaticProps(context) {
   const recentActivitiesData = await getRecentActivitiesData();
   const homeSliderData = await getHomeSliderData();
   const settings = await getSettings();
-  
-  console.log('getStaticProps - settings:', settings);
-  console.log('getStaticProps - logo:', settings?.logo);
-  console.log('getStaticProps - favicon:', settings?.favicon);
+  const menuItems = await getMenu();
+  const pageInfo = await filterMetaInfo(menuItems, 'home');
 
   return {
     props: {
+      menuItems,
+      pageInfo,
       // images,
       // lectures,
       // quotes,
