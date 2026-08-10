@@ -4,15 +4,17 @@ import { server } from "../lib/config";
 const RichText = ({ content }) => {
   if (!content) return null;
 
-  const renderChild = (child, index) => {
+  const renderChild = (child, index, { ignoreBold = false } = {}) => {
     if (child.type === "text") {
-      const textWithLineBreaks = child.text.split('\n').map((text, i, array) => 
+      const textWithLineBreaks = child.text.split('\n').map((text, i, array) =>
         i === array.length - 1 ? text : <>{text}<br /></>
       );
-      
-      if (child.bold && child.italic) {
+
+      const bold = child.bold && !ignoreBold;
+
+      if (bold && child.italic) {
         return <b key={index}><i>{textWithLineBreaks}</i></b>;
-      } else if (child.bold) {
+      } else if (bold) {
         return <b key={index}>{textWithLineBreaks}</b>;
       } else if (child.italic) {
         return <i key={index}>{textWithLineBreaks}</i>;
@@ -22,7 +24,7 @@ const RichText = ({ content }) => {
       return (
         <a key={index} href={child.url}>
           <span>
-            {child.children.map((linkChild, linkIndex) => renderChild(linkChild, `${index}-${linkIndex}`))}
+            {child.children.map((linkChild, linkIndex) => renderChild(linkChild, `${index}-${linkIndex}`, { ignoreBold }))}
           </span>
         </a>
       );
@@ -35,7 +37,7 @@ const RichText = ({ content }) => {
       const HeadingTag = `h${block.level || 1}`;
       return (
         <HeadingTag key={`heading-${blockIndex}`}>
-          {block.children.map((child, index) => renderChild(child, `heading-${blockIndex}-${index}`))}
+          {block.children.map((child, index) => renderChild(child, `heading-${blockIndex}-${index}`, { ignoreBold: true }))}
         </HeadingTag>
       );
     } else if (block.type === "paragraph") {
