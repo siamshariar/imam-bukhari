@@ -12,7 +12,18 @@ import PersonIcon from "@mui/icons-material/Person";
 import MailIcon from "@mui/icons-material/Mail";
 import ButtonSecondary from "../buttons/buttonSecondary";
 
-export default function MobileNav({ navOpen, navControl }) {
+// Pages not covered by the Page Information CMS schema (no menu slot
+// exists for these there), so they stay as fixed entries.
+const STATIC_ITEMS = [
+  { key: "bukhari-jame-masjid", displayName: "ইমাম বুখারী জামে মাসজিদ কমপ্লেক্স" },
+  { key: "kulliyatul-quranil-kareem", displayName: "কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ" },
+  { key: "darul-hadith-arabic-madrasa", displayName: "দারুল হাদীস অ্যারাবিক মাদরাসা" },
+  { key: "donate", displayName: "দান করুন" },
+];
+
+export default function MobileNav({ navOpen, navControl, menuItems = [] }) {
+  const items = [...menuItems, ...STATIC_ITEMS];
+
   return (
     <div id="sidemenu" className={navOpen ? "show" : ""}>
       <div
@@ -25,90 +36,15 @@ export default function MobileNav({ navOpen, navControl }) {
       </div>
       <div className="container sidemenu_main">
         <ul>
-          <li>
-            <Link href="/" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                 হোম
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                 আমাদের সম্বন্ধে
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/bukhari-jame-masjid" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                ইমাম বুখারী জামে মাসজিদ কমপ্লেক্স
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/kulliyatul-quranil-kareem" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ
-              </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/darul-hadith-arabic-madrasa" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                দারুল হাদীস অ্যারাবিক মাদরাসা
-              </a>
-            </Link>
-          </li>
-
-          {/*<li>*/}
-          {/*  <Link href="/members">*/}
-          {/*    <a className="link" onClick={(e) => navControl(false)(e)}>*/}
-          {/*       একাডেমিক কমিটি*/}
-          {/*    </a>*/}
-          {/*  </Link>*/}
-          {/*</li>*/}
-
-
-          <li>
-            <Link href="/videos/UUBTHMWdAFuQ5ynEryDIWdRw" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                ভিডিও সমূহ
-              </a>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="/faqs" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                প্রায়শই জিজ্ঞাসিত প্রশ্ন
-              </a>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="/contact" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                যোগাযোগ
-              </a>
-            </Link>
-          </li>
-
-          <li>
-            <Link href="/donate" legacyBehavior>
-              <a className="link" onClick={(e) => navControl(false)(e)}>
-                দান করুন
-              </a>
-            </Link>
-          </li>
-
-
-          {/* <li>
-        <a href="#" className="link">Testimonials</a>
-        </li> */}
-          {/* <li className="contact_us__btn">
-        <a className="link" onClick={(e) => navControl(false)(e)}>Let's Connect</a>
-        </li>  */}
+          {items.map((item) => (
+            <li key={item.key}>
+              <Link href={`/${item.key}`} legacyBehavior>
+                <a className="link" onClick={(e) => navControl(false)(e)}>
+                  {item.displayName}
+                </a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
