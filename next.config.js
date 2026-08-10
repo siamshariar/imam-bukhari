@@ -15,6 +15,7 @@ module.exports = {
       "ImamBukhariTrust.com",
       "www.ImamBukhariTrust.com",
       "i.ytimg.com",
+      "imam-bukhari-admin-production.up.railway.app",
     ],
   },
 };
