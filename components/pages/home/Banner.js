@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
+import { resolveMediaUrl } from "../../../lib/apiV/core";
 
 export default function HomeBanner({ bannerData }) {
   // Get the banner image URL from the API data
-  const bannerImageUrl = bannerData?.HomeBanner?.image?.data?.attributes?.url;
-  const baseImageUrl = ""; // Your Strapi server URL
-  
+  const bannerImageUrl = resolveMediaUrl(bannerData?.HomeBanner?.image?.data?.attributes?.url);
+
   // Create dynamic styles for the background image
   const bannerStyles = bannerImageUrl ? {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${baseImageUrl}${bannerImageUrl})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${bannerImageUrl})`,
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     backgroundSize: 'cover'
