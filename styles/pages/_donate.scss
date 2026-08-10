@@ -1,8 +1,6 @@
 .donate-content {
   p {
-    font-size: 18px;
-    margin: 0 0 0.75rem;
-    line-height: 1.6;
+    margin: 0 0 0.2rem;
   }
 
   h1,
@@ -11,41 +9,13 @@
   h4,
   h5,
   h6 {
-    margin: 1rem 0 0.5rem;
-    font-weight: normal;
-    color: #2c5530;
-
     &.multiline {
       line-height: 1.6;
     }
   }
 
-  h2 {
-    font-size: 24px;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 0.5rem;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  h4 {
-    font-size: 19px;
-  }
-
   h5 {
     font-size: 18px;
     margin: 0 0 0.75rem;
-  }
-
-  h6 {
-    font-size: 17px;
-  }
-
-  strong,
-  b {
-    color: #1a472a;
-    font-weight: bold;
   }
 }

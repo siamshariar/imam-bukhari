@@ -48,7 +48,7 @@ const RichText = ({ content }) => {
       const isBlank = block.children.every(
         (child) => child.type === "text" && !child.text?.trim()
       );
-      if (isBlank) return null;
+      if (isBlank) return <div key={`spacer-${blockIndex}`} style={{ height: '1rem' }} />;
       return (
         <p key={`paragraph-${blockIndex}`}>
           {block.children.map((child, index) => renderChild(child, `paragraph-${blockIndex}-${index}`))}
