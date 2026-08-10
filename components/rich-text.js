@@ -4,17 +4,15 @@ import { server } from "../lib/config";
 const RichText = ({ content }) => {
   if (!content) return null;
 
-  const renderChild = (child, index, { ignoreBold = false } = {}) => {
+  const renderChild = (child, index) => {
     if (child.type === "text") {
       const textWithLineBreaks = child.text.split('\n').map((text, i, array) =>
         i === array.length - 1 ? text : <>{text}<br /></>
       );
 
-      const bold = child.bold && !ignoreBold;
-
-      if (bold && child.italic) {
+      if (child.bold && child.italic) {
         return <b key={index}><i>{textWithLineBreaks}</i></b>;
-      } else if (bold) {
+      } else if (child.bold) {
         return <b key={index}>{textWithLineBreaks}</b>;
       } else if (child.italic) {
         return <i key={index}>{textWithLineBreaks}</i>;
@@ -24,7 +22,7 @@ const RichText = ({ content }) => {
       return (
         <a key={index} href={child.url}>
           <span>
-            {child.children.map((linkChild, linkIndex) => renderChild(linkChild, `${index}-${linkIndex}`, { ignoreBold }))}
+            {child.children.map((linkChild, linkIndex) => renderChild(linkChild, `${index}-${linkIndex}`))}
           </span>
         </a>
       );
@@ -32,12 +30,18 @@ const RichText = ({ content }) => {
     return null;
   };
 
+  const isMultiline = (children) =>
+    children.some((child) => child.type === "text" && child.text?.includes('\n'));
+
   return (<div className="rich-text">{content.map((block, blockIndex) => {
     if (block.type === "heading") {
       const HeadingTag = `h${block.level || 1}`;
       return (
-        <HeadingTag key={`heading-${blockIndex}`}>
-          {block.children.map((child, index) => renderChild(child, `heading-${blockIndex}-${index}`, { ignoreBold: true }))}
+        <HeadingTag
+          key={`heading-${blockIndex}`}
+          className={isMultiline(block.children) ? "multiline" : undefined}
+        >
+          {block.children.map((child, index) => renderChild(child, `heading-${blockIndex}-${index}`))}
         </HeadingTag>
       );
     } else if (block.type === "paragraph") {
@@ -62,7 +66,7 @@ const RichText = ({ content }) => {
         <ListTag key={`list-${blockIndex}`}>
           {block.children.map((listItem, itemIndex) => (
             <li key={`list-item-${blockIndex}-${itemIndex}`}>
-              {listItem.children.map((child, childIndex) => 
+              {listItem.children.map((child, childIndex) =>
                 renderChild(child, `list-item-${blockIndex}-${itemIndex}-${childIndex}`)
               )}
             </li>
@@ -70,10 +74,10 @@ const RichText = ({ content }) => {
         </ListTag>
       );
     } else if (block.type === "image" && block.image?.url) {
-      const imageUrl = block.image.url.startsWith('http') 
-        ? block.image.url 
+      const imageUrl = block.image.url.startsWith('http')
+        ? block.image.url
         : `${server}${block.image.url}`;
-        
+
       return (
         <div key={`image-${blockIndex}`} className="my-4 flex justify-center">
           <div className="relative">
