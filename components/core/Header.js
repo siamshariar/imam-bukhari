@@ -157,14 +157,14 @@ export default function Header({ menuItems = [], logo }) {
                     <li className="nav_item">
                       <Link href="/" legacyBehavior>
                         <a className="link">
-                           হোম
+                          {menuItems.find((i) => i.key === "")?.displayName || "হোম"}
                         </a>
                       </Link>
                     </li>
                     <li className="nav_item">
                       <Link href="/about" legacyBehavior>
                         <a className="link">
-                           আমাদের সম্বন্ধে
+                          {menuItems.find((i) => i.key === "about")?.displayName || "আমাদের সম্বন্ধে"}
                         </a>
                       </Link>
                     </li>

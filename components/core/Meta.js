@@ -160,10 +160,7 @@ export default function Meta(props) {
       />
 
       {/* page title */}
-      <title>
-        {props.title != "" ? props.title + " | " : ""}{" "}
-        {"ইমাম বুখারী ট্রাস্ট"}
-      </title>
+      <title>{props.title ? `${props.title} | ইমাম বুখারী ট্রাস্ট` : "ইমাম বুখারী ট্রাস্ট"}</title>
         <meta name="description" content={props.description || ""} />
 
 
