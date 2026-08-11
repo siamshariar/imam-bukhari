@@ -18,15 +18,15 @@ import BlockA from "../components/blocks/blockD";
 import { blockAData4, featureListData1 } from "../data/block";
 import featureList from "../components/blocks/featureList";
 import FeatureList from "../components/blocks/featureList";
-import { getAboutShortContent, getImamBukhariDetailData, getMosqueProjectSummaryData, getMosqueMainActivitiesData, getMosqueComplexData } from "../lib/fetch3";
+import { getAboutShortContent, getImamBukhariDetailData, getMosqueProjectSummaryData, getMosqueMainActivitiesData, getMosqueComplexData, getMenu, filterMetaInfo } from "../lib/fetch3";
 import { getSettings } from "../lib/apiV/settings";
 
-export default function MasjidComplex({ aboutContent, imamBukhariDetailData, mosqueProjectSummaryData, mosqueMainActivitiesData, mosqueComplexData, logo, favicon }) {
+export default function MasjidComplex({ aboutContent, imamBukhariDetailData, mosqueProjectSummaryData, mosqueMainActivitiesData, mosqueComplexData, logo, favicon, pageInfo }) {
   return (
     <>
       <Meta
-        title={imamBukhariDetailData?.title || "ইমাম বুখারী জামে মাসজিদ কমপ্লেক্সে"}
-        description="ইমাম বুখারী ট্রাস্ট বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান"
+        title={pageInfo?.metaInfo?.title ?? (imamBukhariDetailData?.title || "ইমাম বুখারী জামে মাসজিদ কমপ্লেক্সে")}
+        description={pageInfo?.metaInfo?.description ?? "ইমাম বুখারী ট্রাস্ট বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান"}
         url={`${server}/bukhari-jame-masjid`}
         image={logo?.url ? `${apiServer}${logo.url}` : `${server}/img/logo/logo.png`}
         type="website"
@@ -76,6 +76,8 @@ export async function getStaticProps(context) {
   const mosqueMainActivitiesData = await getMosqueMainActivitiesData();
   const mosqueComplexData = await getMosqueComplexData();
   const settings = await getSettings();
+  const menuItems = await getMenu();
+  const pageInfo = await filterMetaInfo(menuItems, 'bukhari-jame-masjid');
 
   return {
     props: {
@@ -86,6 +88,8 @@ export async function getStaticProps(context) {
       mosqueComplexData,
       logo: settings?.logo || null,
       favicon: settings?.favicon || null,
+      menuItems,
+      pageInfo,
     },
     revalidate: 60,
   };

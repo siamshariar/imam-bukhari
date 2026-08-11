@@ -12,18 +12,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import MailIcon from "@mui/icons-material/Mail";
 import ButtonSecondary from "../buttons/buttonSecondary";
 
-// Pages not covered by the Page Information CMS schema (no menu slot
-// exists for these there), so they stay as fixed entries.
-const STATIC_ITEMS = [
-  { key: "bukhari-jame-masjid", displayName: "ইমাম বুখারী জামে মাসজিদ কমপ্লেক্স" },
-  { key: "kulliyatul-quranil-kareem", displayName: "কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ" },
-  { key: "darul-hadith-arabic-madrasa", displayName: "দারুল হাদীস অ্যারাবিক মাদরাসা" },
-  { key: "donate", displayName: "দান করুন" },
-];
-
 export default function MobileNav({ navOpen, navControl, menuItems = [] }) {
-  const items = [...menuItems, ...STATIC_ITEMS];
-
   return (
     <div id="sidemenu" className={navOpen ? "show" : ""}>
       <div
@@ -36,7 +25,7 @@ export default function MobileNav({ navOpen, navControl, menuItems = [] }) {
       </div>
       <div className="container sidemenu_main">
         <ul>
-          {items.map((item) => (
+          {menuItems.map((item) => (
             <li key={item.key}>
               <Link href={`/${item.key}`} legacyBehavior>
                 <a className="link" onClick={(e) => navControl(false)(e)}>

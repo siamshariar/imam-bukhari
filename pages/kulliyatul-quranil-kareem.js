@@ -23,14 +23,14 @@ import HomeMembers from "../components/pages/home/Members";
 import TeachersList from "../components/pages/members/Teachers";
 import BlockA from "../components/blocks/blockE";
 import { blockAData5 } from "../data/block";
-import { getImamBukhariMasjid, getAboutShortContent, getKulliyatulQuranilKareemDetailData, getKulliaProjectSummaryData, getKulliaMainActivitiesData, getMembers, getKulliaRecommendedDepartmentData, getCharacteristicsKulliaData } from "../lib/fetch3";
+import { getImamBukhariMasjid, getAboutShortContent, getKulliyatulQuranilKareemDetailData, getKulliaProjectSummaryData, getKulliaMainActivitiesData, getMembers, getKulliaRecommendedDepartmentData, getCharacteristicsKulliaData, getMenu, filterMetaInfo } from "../lib/fetch3";
 
-export default function Kulliyatul({ aboutContent, members, kulliyatulQuranilKareemDetailData, kulliaProjectSummaryData, kulliaMainActivitiesData, kulliaRecommendedDepartmentData, characteristicsKulliaData }) {
+export default function Kulliyatul({ aboutContent, members, kulliyatulQuranilKareemDetailData, kulliaProjectSummaryData, kulliaMainActivitiesData, kulliaRecommendedDepartmentData, characteristicsKulliaData, pageInfo }) {
   return (
     <>
       <Meta
-        title="কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ"
-        description="কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাত আল-ইসলামিয়্যাহ’ উচ্চতর ইসলামী শিক্ষা ও গবেষণামূলক একটি প্রতিষ্ঠান। এটি স্থাপিত ২০২১ খ্রি./ ১৪৪২ হি. সালে। "
+        title={pageInfo?.metaInfo?.title ?? "কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ"}
+        description={pageInfo?.metaInfo?.description ?? "কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাত আল-ইসলামিয়্যাহ’ উচ্চতর ইসলামী শিক্ষা ও গবেষণামূলক একটি প্রতিষ্ঠান। এটি স্থাপিত ২০২১ খ্রি./ ১৪৪২ হি. সালে। "}
         url={`${server}/about`}
         image={`${server}/img/logo/logo.png`}
         type="website"
@@ -38,7 +38,7 @@ export default function Kulliyatul({ aboutContent, members, kulliyatulQuranilKar
 
       <div className="page_wrapper home_page">
         <Banner
-          title="কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ"
+          title={pageInfo?.metaInfo?.title ?? "কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ"}
           subTitle=""
           bgImage="/img/banner/photo.jpg"
         />
@@ -93,6 +93,8 @@ export async function getStaticProps(context) {
   const kulliaMainActivitiesData = await getKulliaMainActivitiesData();
   const kulliaRecommendedDepartmentData = await getKulliaRecommendedDepartmentData();
   const characteristicsKulliaData = await getCharacteristicsKulliaData();
+  const menuItems = await getMenu();
+  const pageInfo = await filterMetaInfo(menuItems, 'kulliyatul-quranil-kareem');
 
   return {
     props: {
@@ -102,7 +104,9 @@ export async function getStaticProps(context) {
       kulliaProjectSummaryData,
       kulliaMainActivitiesData,
       kulliaRecommendedDepartmentData,
-      characteristicsKulliaData
+      characteristicsKulliaData,
+      menuItems,
+      pageInfo,
     },
     revalidate: 60, // Revalidate every 60 seconds
   };

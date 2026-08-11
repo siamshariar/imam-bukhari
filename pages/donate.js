@@ -17,13 +17,14 @@ import RichText from "../components/rich-text";
 import DonateRichText from "../components/DonateRichText";
 import { getDonateData } from "../lib/apiV/aboutmou";
 import { getSettings } from "../lib/apiV/settings";
+import { getMenu, filterMetaInfo } from "../lib/apiV/pageinfo";
 
-export default function About({ donateData, logo, favicon }) {
+export default function About({ donateData, logo, favicon, pageInfo }) {
   return (
     <>
       <Meta
-        title="দান করুন"
-        description="ইমাম বুখারী ট্রাস্ট বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান"
+        title={pageInfo?.metaInfo?.title ?? "দান করুন"}
+        description={pageInfo?.metaInfo?.description ?? "ইমাম বুখারী ট্রাস্ট বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান"}
         url={`${server}/about`}
         image={logo?.url ? `${apiServer}${logo.url}` : `${server}/img/logo/logo.png`}
         type="website"
@@ -32,7 +33,7 @@ export default function About({ donateData, logo, favicon }) {
 
       <div className="page_wrapper home_page">
         <Banner
-          title="দান করুন"
+          title={pageInfo?.metaInfo?.title ?? "দান করুন"}
           subTitle=""
           bgImage="/img/banner/photo.jpg"
         />
@@ -64,12 +65,16 @@ export default function About({ donateData, logo, favicon }) {
 export async function getStaticProps(context) {
   const donateData = await getDonateData();
   const settings = await getSettings();
+  const menuItems = await getMenu();
+  const pageInfo = await filterMetaInfo(menuItems, 'donate');
 
   return {
     props: {
       donateData,
       logo: settings?.logo || null,
       favicon: settings?.favicon || null,
+      menuItems,
+      pageInfo,
     },
     revalidate: 60, // Revalidate every minute for ISR
   };

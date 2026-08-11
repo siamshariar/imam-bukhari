@@ -5,7 +5,7 @@ import MobileNav from "./MobileNav";
 import ButtonSecondary from "../buttons/buttonSecondary";
 import { server, apiServer } from "../../lib/config";
 
-export default function Header({ menuItems, logo }) {
+export default function Header({ menuItems = [], logo }) {
   // const header = useRef(null);
   // const [scrollTop, setScrollTop] = useState(0);
   // const [didMount, setDidMount] = useState(false);
@@ -154,30 +154,15 @@ export default function Header({ menuItems, logo }) {
                 </div>
                 <div className="nav nav_hide">
                   <ul>
-                    <li className="nav_item">
-                      <Link href="/" legacyBehavior>
-                        <a className="link">
-                           হোম
-                        </a>
-                      </Link>
-                    </li>
-                    <li className="nav_item">
-                      <Link href="/about" legacyBehavior>
-                        <a className="link">
-                           আমাদের সম্বন্ধে
-                        </a>
-                      </Link>
-                    </li>
-                    {/* <li className="nav_item">
-                      <Link href="/advisory-council">
-                        <a className="link">উপদেষ্টামন্ডলি</a>
-                      </Link>
-                    </li>
-                    <li className="nav_item">
-                      <Link href="/members">
-                        <a className="link">একাডেমিক কমিটি</a>
-                      </Link>
-                    </li> */}
+                    {menuItems.map((item) => (
+                      <li className="nav_item" key={item.key}>
+                        <Link href={`/${item.key}`} legacyBehavior>
+                          <a className="link">
+                            {item.displayName}
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>

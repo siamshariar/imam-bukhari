@@ -14,10 +14,10 @@ import featureList from "../components/blocks/featureList";
 import { featureListData2 } from "../data/block";
 import FeatureList from "../components/blocks/featureListA";
 import BlockA from "../components/blocks/blockA";
-import { getAboutShortContent, getDarulHadithMadrasaData, getDarulHadithSummaryData } from "../lib/fetch3";
+import { getAboutShortContent, getDarulHadithMadrasaData, getDarulHadithSummaryData, getMenu, filterMetaInfo } from "../lib/fetch3";
 import { getDarulHadithCurriculumData, getDarulHadithCharacteristicsData } from "../lib/apiV/aboutmou";
 
-export default function MadrasaComplex({ aboutContent, darulHadithData, darulHadithSummaryData, darulHadithCurriculumData, darulHadithCharacteristicsData }) {
+export default function MadrasaComplex({ aboutContent, darulHadithData, darulHadithSummaryData, darulHadithCurriculumData, darulHadithCharacteristicsData, pageInfo }) {
   // Transform API data to expected format for textBlockD
   const transformedAboutContent = darulHadithData ? [
     {
@@ -34,8 +34,8 @@ export default function MadrasaComplex({ aboutContent, darulHadithData, darulHad
   return (
     <>
       <Meta
-        title={darulHadithData?.title || "দারুল হাদীস অ্যারাবিক মাদরাসা প্রকল্প"}
-        description={darulHadithData?.description || "ইমাম বুখারী ট্রাস্ট -এর অন্যতম একটি প্রকল্প হচ্ছে দারুল হাদীস অ্যারাবিক মাদরাসা"}
+        title={pageInfo?.metaInfo?.title ?? (darulHadithData?.title || "দারুল হাদীস অ্যারাবিক মাদরাসা প্রকল্প")}
+        description={pageInfo?.metaInfo?.description ?? (darulHadithData?.description || "ইমাম বুখারী ট্রাস্ট -এর অন্যতম একটি প্রকল্প হচ্ছে দারুল হাদীস অ্যারাবিক মাদরাসা")}
         url={`${server}/about`}
         image={`${server}/img/logo/logo.png`}
         type="website"
@@ -79,6 +79,8 @@ export async function getStaticProps(context) {
   const darulHadithSummaryData = await getDarulHadithSummaryData();
   const darulHadithCurriculumData = await getDarulHadithCurriculumData();
   const darulHadithCharacteristicsData = await getDarulHadithCharacteristicsData();
+  const menuItems = await getMenu();
+  const pageInfo = await filterMetaInfo(menuItems, 'darul-hadith-arabic-madrasa');
 
   return {
     props: {
@@ -86,7 +88,9 @@ export async function getStaticProps(context) {
       darulHadithData,
       darulHadithSummaryData,
       darulHadithCurriculumData,
-      darulHadithCharacteristicsData
+      darulHadithCharacteristicsData,
+      menuItems,
+      pageInfo,
     },
     revalidate: 60, // Revalidate every 60 seconds
   };
