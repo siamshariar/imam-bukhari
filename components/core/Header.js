@@ -154,15 +154,20 @@ export default function Header({ menuItems = [], logo }) {
                 </div>
                 <div className="nav nav_hide">
                   <ul>
-                    {menuItems.map((item) => (
-                      <li className="nav_item" key={item.key}>
-                        <Link href={`/${item.key}`} legacyBehavior>
-                          <a className="link">
-                            {item.displayName}
-                          </a>
-                        </Link>
-                      </li>
-                    ))}
+                    <li className="nav_item">
+                      <Link href="/" legacyBehavior>
+                        <a className="link">
+                           হোম
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="nav_item">
+                      <Link href="/about" legacyBehavior>
+                        <a className="link">
+                           আমাদের সম্বন্ধে
+                        </a>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
