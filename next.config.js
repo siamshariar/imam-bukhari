@@ -17,7 +17,7 @@ module.exports = {
       "i.ytimg.com",
       "imam-bukhari-admin-production.up.railway.app",
       "imam-bukhari-web-latest.vercel.app",
-      "api.exilecloud.xyz"
+      "api.exilecloud.xyz",
     ],
   },
 };
