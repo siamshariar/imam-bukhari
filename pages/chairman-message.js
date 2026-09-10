@@ -46,6 +46,7 @@ export default function Message({ chairmanMessage }) {
                                   style={{
                                     display: "block", // Optional: Ensure block layout for text alignment
                                     textAlign: /[؀-ۿ]/.test(child.text) ? "right" : "left",
+                                    lineHeight: 1.6,
                                   }}
                                 >
                                   {child.text}
