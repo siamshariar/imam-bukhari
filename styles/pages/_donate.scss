@@ -1,0 +1,21 @@
+.donate-content {
+  p {
+    margin: 0 0 0.2rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &.multiline {
+      line-height: 1.6;
+    }
+  }
+
+  h5 {
+    font-size: 18px;
+    margin: 0 0 0.75rem;
+  }
+}

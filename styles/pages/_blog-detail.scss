@@ -1,0 +1,45 @@
+.member-detail {
+}
+.member-detail-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+.member-detail-left {
+  width: 344px;
+  padding-right: 24px;
+  margin-bottom: 48px;
+}
+.member-detail-right {
+  width: calc(100% - 344px);
+  padding-left: 24px;
+  font-size: 18px;
+}
+
+.course_characteristics {
+  padding-left: 16px;
+}
+.course_characteristics li {
+  list-style-type: disc;
+}
+
+.course-detail-table {
+  width: 100%;
+}
+.course-detail-table tr {
+}
+.course-detail-table tr th,
+.course-detail-table tr td {
+  padding-right: 20px;
+  text-align: left;
+  vertical-align: top;
+}
+.member_detail_page .section_content__text1 {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .member-detail-right {
+    width: unset;
+    padding-left: 0;
+  }
+}

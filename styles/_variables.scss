@@ -1,0 +1,39 @@
+/*------- variables -------*/
+:after,
+:before,
+:root {
+  --app-white: #fff;
+  --app-black: #000;
+  --app-success: #28a745;
+  --app-danger: #dc3545;
+  --app-warning: #ffc107;
+  //--app-theme-color: #a51c30;
+  --app-theme-color: #37a786;
+  --app-font-primary: "SolaimanLipi", sans-serif;
+  --app-font-secondary: "Kalpurush", sans-serif;
+  --app-text-color-primary: #1e1e1e;
+  --app-text-color-secondary: #000000;
+  --app-text-color-tertiary: #1e1e1e;
+  --app-background-color-primary: #f8f8f8;
+  --app-background-color-secondary: #f3f4f4;
+  --app-background-color-tertiary: #e3e5e5;
+  --app-border-primary: #1e1e1e;
+  --app-border-secondary: #bac5c6;
+  --app-border-radius-primary: 20px;
+  --app-box-shadow-primary: 0 2.5rem 3.125rem rgba(103, 118, 128, 0.1);
+  --app-drop-shadow: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03))
+    drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08));
+  --app-scrollbar-thumb: #c1c1c1;
+  --app-brand-facebook: #1877f2;
+  --app-brand-linkedin: #0077b5;
+  --app-brand-whatsapp: #075e54;
+  --app-brand-messenger: #0084ff;
+  --app-brand-skype: #00aff0;
+  --app-icon-mobile: #e93b81;
+  --app-icon-email: #6ab5b9;
+  --app-icon-location: #0077b3;
+  --app-icon-flag: #00684d;
+  --app-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --app-transition-duration: 300ms;
+  --app-transform-primary: skew(10deg, -10deg);
+}

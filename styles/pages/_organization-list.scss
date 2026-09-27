@@ -1,0 +1,233 @@
+.ex-com-item {
+  margin-bottom: 50px;
+  width: 25%;
+  padding: 0 15px;
+}
+
+.ex-com-item_full {
+  margin-bottom: 50px;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.ex-com-item_2 {
+  margin-bottom: 50px;
+  width: 50%;
+  padding: 0 15px;
+}
+
+.ex-com-item_3 {
+  margin-bottom: 50px;
+  width: 33.33%;
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .ex-com-item {
+    width: 50%;
+  }
+
+  .ex-com-item_full {
+    width: 100%;
+  }
+
+  .ex-com-item_2 {
+    width: 100%;
+  }
+
+  .ex-com-item_3 {
+    width: 100%;
+  }
+}
+
+
+.ex-com-img {
+  width: 160px;
+  height: 160px;
+  // border-radius: 50%;
+  border-radius: 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.ex-com-img a {
+  display: block;
+  height: 100%;
+}
+.ex-com-img a img {
+  width: 100%;
+  min-height: 100%;
+  transition: all 0.5s ease-out;
+}
+.ex-com-detail {
+  text-align: center;
+  padding-top: 18px;
+}
+.ex-com-detail h3 {
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+.ex-com-detail h3 a {
+  text-decoration: none;
+  color: #2b2e3b;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+.ex-com-detail h3 a:hover {
+  color: var(--theme-color-one-sub);
+}
+.ex-com-detail h4 {
+  font-size: 13px;
+  color: grey;
+  margin-bottom: 14px;
+}
+.ex-com-social {
+  margin-top: 18px;
+  overflow: hidden;
+}
+.ex-com-social ul {
+  margin: 0;
+  font-size: 0;
+  text-align: center;
+}
+.ex-com-social ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 3px;
+}
+.ex-com-social ul li:first-child {
+  margin-left: 0;
+}
+.ex-com-social ul li:last-child {
+  margin-right: 0;
+}
+.ex-com-social ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 5px;
+  font-size: 13px;
+  background: var(--theme-color-one);
+  transition: all 0.3s;
+}
+.ex-com-social ul li a:hover {
+  background: var(--theme-color-one-sub);
+}
+@keyframes ex-com-icon-ani {
+  0% {
+    margin: 0 3px;
+  }
+  50% {
+    margin: 0 5px;
+  }
+  100% {
+    margin: 0 3px;
+  }
+}
+
+.ex-com-img {
+  width: 100%;
+  position: relative;
+  padding-top: 100%;
+}
+.ex-com-img a {
+  display: block;
+  text-decoration: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top: 5px solid #369f80;
+  border-bottom: 5px solid #af9805;
+  border-radius: 50% 50% 50% 0;
+  overflow: hidden;
+  transition: all 0.5s ease 0s;
+}
+.ex-com-img a img {
+  width: 100%;
+  min-height: 100%;
+  transition: all 0.5s ease 0s;
+}
+.ex-com-item:hover .ex-com-img a {
+  border-top-color: #37a786;
+  border-bottom-color: #37a786;
+  border-radius: 50% 0;
+}
+.ex-com-item:hover .ex-com-img a img {
+  transform: scale(1.1);
+  transition: 3s;
+}
+.ex-com-detail {
+  padding-top: 18px;
+}
+.ex-com-detail h3 {
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+.ex-com-detail h3 a {
+  text-decoration: none;
+  color: #2b2e3b;
+  font-size: 22px;
+  font-weight: 600;
+  text-transform: capitalize;
+  transition: all 0.3s;
+}
+.ex-com-detail h4 {
+  display: block;
+  font-size: 14px;
+  color: grey;
+  text-transform: capitalize;
+  margin-bottom: 14px;
+  line-height: 18px;
+}
+.ex-com-social {
+  font-size: 0;
+  margin: 0;
+  list-style: none;
+}
+.ex-com-social li {
+  display: inline-block;
+  margin-right: 8px;
+}
+.ex-com-social li:last-child {
+  margin-right: 0;
+}
+.ex-com-social li a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  background: #fff;
+  font-size: 14px;
+  color: grey;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ex-com-item:hover .ex-com-social li a {
+  border-style: dashed;
+}
+.facebook:hover {
+  color: #fff;
+  background: #3b5998;
+  border: 1px solid #3b5998 !important;
+}
+.twitter:hover {
+  color: #fff;
+  background: #1da1f2;
+  border: 1px solid #1da1f2 !important;
+}
+.linkedin:hover {
+  color: #fff;
+  background: #006097;
+  border: 1px solid #006097 !important;
+}
+.ex-com-social li a:hover {
+  color: #fff;
+}
