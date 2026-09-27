@@ -67,7 +67,7 @@ export default function Message({ chairmanMessage }) {
                                   style={{
                                     textAlign: isRtl ? "right" : "left",
                                     marginTop: isSignatureStart
-                                      ? "1.3rem"
+                                      ? "0.6rem"
                                       : wasAlreadyInSignature
                                       ? "-2px"
                                       : 0,
