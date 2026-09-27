@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- meta info -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- site identity -->
+  <title>কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ</title>
+  <link href="img/favicon/favicon.ico" rel="shortcut icon" type="image/ico" />
+
+  <!-- CSS library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="vendor/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" type="text/css" href="vendor/fontawesome/css/all.min.css" />
+
+  <!-- custom CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.min.css" />
+</head>
+
+<body>
+  <!-- follower -->
+  <div id="follower" class="follower"></div>
+
+  <!-- navbar -->
+  <nav id="navbar">
+    <div id="header" class="header">
+      <div id="topbar" class="topbar">
+        <div class="container">
+          <div class="topbar_container">
+            <div class="topbar_left">
+              <ul class="top_menu">
+                <li>
+                  <a href="#">যোগাযোগ</a>
+                </li>
+                <li>
+                  <a href="#">আমাদের পরিচিতি</a>
+                </li>
+              </ul>
+            </div>
+            <div class="topbar_right">
+              <ul class="top_menu top_social_menu">
+                <li>
+                  <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main_header">
+        <div class="container">
+          <div class="header_left">
+            <div id="hamburger" class="hamburger">
+              <div></div>
+              <a href="" class="link">মেনু</a>
+            </div>
+            <div class="nav nav_hide">
+              <ul>
+                <li class="nav_item">
+                  <a class="link" href="/">হোম</a>
+                </li>
+                <li class="nav_item">
+                  <a class="link" href="/about.html">আমাদের সম্বন্ধে</a>
+                </li>
+                <li class="nav_item">
+                  <a class="link" href="/members.html">সদস্যবৃন্দ</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="header_logo">
+            <a href="/">
+              <img src="img/logo/logo.png" alt="Brnad logo" />
+            </a>
+          </div>
+          <div class="header_right">
+            <div class="nav nav_hide">
+              <ul>
+                <li class="nav_item">
+                  <a class="link" href="/courses.html">কোর্স সমূহ</a>
+                </li>
+                <li class="nav_item">
+                  <a class="link" href="/admission.html">ভর্তি</a>
+                </li>
+                <li class="nav_item">
+                  <a class="link" href="/contact.html">যোগাযোগ</a>
+                </li>
+                <!-- <li class="nav_item nav_hide contact_us__btn">
+                <a href="#" class="link">Let's Connect</a>
+                </li>
+                <li class="nav_item tel_item">
+                <a href="tel:(925) 999-5599" class="link tel">(925) 999-5599</a>
+                </li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- Side menu -->
+  <div id="sidemenu">
+    <div class="container sidemenu_close">
+      <button class="sidemenu_close_btn toggle"><span></span></button>
+    </div>
+    <div class="container sidemenu_main">
+      <ul>
+        <li>
+          <a href="/" class="link">হোম</a>
+        </li>
+        <li>
+          <a href="/about.html" class="link">আমাদের সম্বন্ধে</a>
+        </li>
+        <li>
+          <a href="/members.html" class="link">সদস্যবৃন্দ</a>
+        </li>
+        <li>
+          <a href="/courses.html" class="link">কোর্স সমূহ</a>
+        </li>
+        <li>
+          <a href="/admission.html" class="link">ভর্তি</a>
+        </li>
+        <li>
+          <a href="/contact.html" class="link">যোগাযোগ</a>
+        </li>
+        <li>
+          <a href="/privacy-policy.html" class="link">গোপনীয়তা নীতি</a>
+        </li>
+        <li>
+          <a href="/faq.html" class="link">প্রায়শই জিজ্ঞাসিত প্রশ্ন</a>
+        </li>
+        <!-- <li>
+        <a href="#" class="link">Testimonials</a>
+        </li> -->
+        <!-- <li class="contact_us__btn">
+        <a class="link">Let's Connect</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+  <!-- mobile contact -->
+  <div class="floating_contact">
+    <div class="wrapper">
+      <a class="item" href="mailto:realty@ivanestates.com">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="18" fill="none" viewBox="0 0 26 18">
+          <path fill-rule="evenodd" d="M1.273 18l7.734-7.735c.395.352.838.647 1.32.87.592.275 1.233.44 1.885.488.779.055 1.567-.059 2.297-.334.62-.235 1.189-.584 1.684-1.023L23.927 18H1.273zm6.454-9L0 16.727V1.273L7.727 9zM25.2 1.3v15.427l-7.71-7.71c2.603-2.54 5.154-5.13 7.71-7.717zM23.927 0l-8.78 8.78c-.343.339-.744.61-1.192.792-.903.367-1.942.349-2.831-.05-.37-.167-.707-.398-1.003-.675l-.403-.389c-.01-.014-.021-.029-.034-.042-.049-.058-.104-.109-.166-.152-2.8-2.714-5.54-5.49-8.28-8.264h22.69z" clip-rule="evenodd" />
+        </svg>
+      </a>
+      <a class="item" href="tel:(925) 999-5599">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 25 25">
+          <path d="M24.1 18.172l-5.109-2.635c-.71-.369-1.606-.185-2.106.448l-1.87 2.397c-1.817-.974-3.213-1.923-4.82-3.53-1.71-1.713-2.633-3.136-3.58-4.9l2.37-1.845c.631-.5.842-1.397.447-2.108L6.8.914C6.325.018 5.192-.272 4.376.28l-3.24 2.16C.374 2.944-.047 3.813.005 4.709.057 5.63.19 6.789.4 7.606c.948 3.636 3.213 7.404 6.4 10.592 3.186 3.188 6.952 5.454 10.586 6.403.816.21 1.975.316 2.923.395.922.053 1.79-.395 2.291-1.16l2.107-3.293c.58-.817.263-1.923-.606-2.371z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- main viewport -->
+  <main id="viewport" class="viewport">
+    <div class="page_wrapper home_page">
+      <div id="bannar" class="sold bannar homepage_banner custom_intro">
+
+        <div id="baseFollower" class="follower"></div>
+
+        <div>
+          <div class="bannar_container">
+            <!-- <h1 class="bannar_title">Past Transactions</h1>
+          <p class="bannar_subtitle"></p>
+          <a class="btn bannar_scrolldown btn--secondary">
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+          </a> -->
+            <div class="home_heading">
+              <div class="home_heading_inner">
+                <div class="container home_heading__container">
+                  <!-- <p class="home_heading__title1">
+                <span>আপনার বিশ্বস্ত প্রতিষ্ঠান</span>
+              </p> -->
+                  <h1 class="home_heading__lgtitle">কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ</h1>
+                  <p class="home_heading__title3">বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান</p>
+                  <a role="button" class="btn btn--secondary contact_us__btn">
+                    যোগাযোগ করুন
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="slider_testimonials">
+        <div class="testimonials">
+          <div class="container basic_paddings">
+            <div class="slider__container">
+              <!-- <div class="slider__header">Testimonials</div> -->
+              <div class="slider__slider" data-autoplay="true">
+                <div class="slider__item">
+                  <blockquote class="slider__item-content">
+                    হে নবী আপনি বলে দিন, যে ব্যক্তি (কুরআন-সুন্নাহ তথা শরীয়াতের বিধান) জানে আর যে জানে না, তারা কি উভয়ে সমান গতে পারে? তার মানে কখনই সমান হতে পারে না।
+                  </blockquote>
+                  <div class="slider__item-author">[আল কুরআন - ৩৯ : ৯]</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="about" class="home_about">
+        <div class="vertical_paddings">
+          <div class="container">
+            <div class="home_about_content">
+              <div class="section_content__col text">
+                <div class="section_content__text_wrap">
+                  <!-- <h2 class="about_h2">About Ivan Santacruz</h2> -->
+
+                  <p>
+                    <b>‘কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ’</b> বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান। এতে থাকছে সানাবিয়্যাহ (হায়ার সেকেন্ডারি) ও কুল্লিয়া (ব্যাচেলর) পর্যায়ের শিক্ষা ব্যবস্থা। আরো রয়েছে শিক্ষক প্রশিক্ষণ কোর্স এবং বিভিন্ন শ্রেণী-পেশার লোকদের জন্য আরবি ভাষা কোর্স। এবং গুরুত্বপূর্ণ একাধিক বিষয়ের ওপর ডিপ্লোমা ও সার্টিফিকেট কোর্স।
+                  </p>
+                  <p>
+                    দেশ-বিদেশ হতে মাস্টার্স ও ডক্টরেট ডিগ্রিপ্রাপ্ত স্কলার ও শিক্ষাবিদগণ শিক্ষক হিসাবে পাঠদান করবেন। বিশুদ্ধ ধারার ইসলামী শিক্ষার সাথে যুগোপযোগী আধুনিক শিক্ষা ও প্রযুক্তির সমন্বয়ে একটি অনন্য প্রতিষ্ঠান৷ বর্তমান যুগের শ্রেষ্ঠ ইসলামী বিদ্যাপীঠ মদিনা ইসলামী বিশ্ববিদ্যালয়ের সিলেবাস ও কারিকুলামের আলোকে কুল্লিয়ার শিক্ষাক্রম প্রণীত
+                  </p>
+
+                  <!-- <div>
+                <a href="" role="button" class="btn btn--primary">
+                  Learn more
+                </a>
+                </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="quote_section">
+        <div class="basic_paddings">
+          <div class="container">
+            <div class="section_content__row reverse">
+              <div class="section_content__col">
+                <div class="section_content__col__img">
+                  <img class="main_image" src="img/members/dr-manzureelahi.jpeg" alt="main image">
+                </div>
+              </div>
+              <div class="section_content__col text">
+                <div class="section_content__text_wrap">
+                  <p class="section_content__text1">
+                    প্রতিষ্ঠাতার বাণী
+                  </p>
+                  <p class="section_content__text2">
+                    শিক্ষাবিহীন জাতি অনুন্নত এবং অবিকশিত। তাই কোন জাতির বিকাশ ও উন্নয়নের জন্য শিক্ষার ভূমিকা অপরিহার্য। ফলে যে শিক্ষা-আদর্শে মানবজাতির সর্বাঙ্গীণ কল্যাণ রয়েছে মূলত সেটিই সর্বকালের সর্বশ্রেষ্ঠমানব মুহাম্মদ (সল্লাল্লাহ আলাইহি ওয়া সাল্লাম) সমগ্র বিশ্ববাসীর জন্য উপহার দিয়ে গেছেন; যা সর্বজন স্বীকৃত। এ মর্মে আল্লাহ বলেন, “যিনি তোমাদের কাছে আমার আয়াতসমূহ পাঠ করেন, তোমাদেরকে পরিশুদ্ধ করেন এবং কিতাব ও হেকমত শিক্ষা দেন। আর তা শিক্ষা দেন যা তোমরা জানতে না” [সূরা বাকারাহ্: ১৫১]।
+                  </p>
+                  <a class="link" href="">বিস্তারিত দেখুন</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="basic_paddings">
+          <div class="container">
+            <div class="section_content__row straight">
+              <div class="section_content__col">
+                <div class="section_content__col__img">
+                  <img src="img/members/dr-manzureelahi.jpeg">
+                </div>
+              </div>
+              <div class="section_content__col text">
+                <div class="section_content__text_wrap">
+                  <p class="section_content__text1">একাডেমিক প্রধানের বাণী</p>
+                  <p class="section_content__text2">
+                    শিক্ষাবিহীন জাতি অনুন্নত এবং অবিকশিত। তাই কোন জাতির বিকাশ ও উন্নয়নের জন্য শিক্ষার ভূমিকা অপরিহার্য। ফলে যে শিক্ষা-আদর্শে মানবজাতির সর্বাঙ্গীণ কল্যাণ রয়েছে মূলত সেটিই সর্বকালের সর্বশ্রেষ্ঠমানব মুহাম্মদ (সল্লাল্লাহ আলাইহি ওয়া সাল্লাম) সমগ্র বিশ্ববাসীর জন্য উপহার দিয়ে গেছেন; যা সর্বজন স্বীকৃত। এ মর্মে আল্লাহ বলেন, “যিনি তোমাদের কাছে আমার আয়াতসমূহ পাঠ করেন, তোমাদেরকে পরিশুদ্ধ করেন এবং কিতাব ও হেকমত শিক্ষা দেন। আর তা শিক্ষা দেন যা তোমরা জানতে না” [সূরা বাকারাহ্: ১৫১]।
+                  </p>
+                  <a class="link" href="">বিস্তারিত দেখুন</a>
+                </div>
+              </div>
+            </div>
+            <!-- /.row-->
+          </div>
+          <!-- /.container-->
+        </div>
+        <!-- /.section-->
+      </section>
+      <section id="members" class="properties">
+        <div class="container">
+          <h3 class="home_section__title1">সদস্যবৃন্দ</h3>
+          <div class="properties_wrapper col4">
+            <div class="property">
+              <a href="/member-detail.html" class="property_link">
+                <div class="property_img">
+                  <img src="img/members/dr-manzureelahi.jpeg" alt="manzureelahi" />
+                </div>
+                <div class="property_content">
+                  <div class="property_header">
+                    <h3>ড. মোহাম্মদ মানজুরে ইলাহী</h3>
+                    <div class="properties_grid_price">সভাপতি</div>
+                  </div>
+                  <!-- <p class="property_address">
+                3515 Ashbourne Circle, San Ramon, CA 94583
+                </p> -->
+                  <p class="property_details">পিএইচডি, মদিনা ইসলামী বিশ্ববিদ্যালয়, সৌদী আরব</p>
+                  <div class="properties_grid_footer">
+                    <span class="link">বিস্তারিত জানুন</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="property">
+              <a href="/member-detail.html" class="property_link">
+                <div class="property_img">
+                  <img src="img/members/dr-saifullah.jpeg" alt="3515 Ashbourne Cir" />
+                </div>
+                <div class="property_content">
+                  <div class="property_header">
+                    <h3>ড. মোহাম্মদ মানজুরে ইলাহী</h3>
+                    <div class="properties_grid_price">সভাপতি</div>
+                  </div>
+                  <!-- <p class="property_address">
+                3515 Ashbourne Circle, San Ramon, CA 94583
+                </p> -->
+                  <p class="property_details">পিএইচডি, মদিনা ইসলামী বিশ্ববিদ্যালয়, সৌদী আরব</p>
+                  <div class="properties_grid_footer">
+                    <span class="link">বিস্তারিত জানুন</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="property">
+              <a href="/member-detail.html" class="property_link">
+                <div class="property_img">
+                  <img src="img/members/dr-manzureelahi.jpeg" alt="3515 Ashbourne Cir" />
+                </div>
+                <div class="property_content">
+                  <div class="property_header">
+                    <h3>ড. মোহাম্মদ মানজুরে ইলাহী</h3>
+                    <div class="properties_grid_price">সভাপতি</div>
+                  </div>
+                  <!-- <p class="property_address">
+                3515 Ashbourne Circle, San Ramon, CA 94583
+                </p> -->
+                  <p class="property_details">পিএইচডি, মদিনা ইসলামী বিশ্ববিদ্যালয়, সৌদী আরব</p>
+                  <div class="properties_grid_footer">
+                    <span class="link">বিস্তারিত জানুন</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="property">
+              <a href="/member-detail.html" class="property_link">
+                <div class="property_img">
+                  <img src="img/members/dr-manzureelahi.jpeg" alt="3515 Ashbourne Cir" />
+                </div>
+                <div class="property_content">
+                  <div class="property_header">
+                    <h3>ড. মোহাম্মদ মানজুরে ইলাহী</h3>
+                    <div class="properties_grid_price">সভাপতি</div>
+                  </div>
+                  <!-- <p class="property_address">
+                3515 Ashbourne Circle, San Ramon, CA 94583
+                </p> -->
+                  <p class="property_details">পিএইচডি, মদিনা ইসলামী বিশ্ববিদ্যালয়, সৌদী আরব</p>
+                  <div class="properties_grid_footer">
+                    <span class="link">বিস্তারিত জানুন</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="property">
+              <a href="/member-detail.html" class="property_link">
+                <div class="property_img">
+                  <img src="img/members/dr-manzureelahi.jpeg" alt="3515 Ashbourne Cir" />
+                </div>
+                <div class="property_content">
+                  <div class="property_header">
+                    <h3>ড. মোহাম্মদ মানজুরে ইলাহী</h3>
+                    <div class="properties_grid_price">সভাপতি</div>
+                  </div>
+                  <!-- <p class="property_address">
+                3515 Ashbourne Circle, San Ramon, CA 94583
+                </p> -->
+                  <p class="property_details">পিএইচডি, মদিনা ইসলামী বিশ্ববিদ্যালয়, সৌদী আরব</p>
+                  <div class="properties_grid_footer">
+                    <span class="link">বিস্তারিত জানুন</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="property">
+              <a href="/member-detail.html" class="property_link">
+                <div class="property_img">
+                  <img src="img/members/dr-manzureelahi.jpeg" alt="3515 Ashbourne Cir" />
+                </div>
+                <div class="property_content">
+                  <div class="property_header">
+                    <h3>ড. মোহাম্মদ মানজুরে ইলাহী</h3>
+                    <div class="properties_grid_price">সভাপতি</div>
+                  </div>
+                  <!-- <p class="property_address">
+                3515 Ashbourne Circle, San Ramon, CA 94583
+                </p> -->
+                  <p class="property_details">পিএইচডি, মদিনা ইসলামী বিশ্ববিদ্যালয়, সৌদী আরব</p>
+                  <div class="properties_grid_footer">
+                    <span class="link">বিস্তারিত জানুন</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="courses" class="home_courses">
+        <div class="container">
+          <h3 class="home_section__title1">কোর্স সমূহ</h3>
+          <div class="courses_container">
+            <div class="courses_list">
+              <a class="course_item" href="#">
+                <div class="course_item_wrap">
+                  <h3>
+                    <span>একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স</span>
+                  </h3>
+                  <div class="course_item_text">
+                    আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে।
+                  </div>
+                  <div class="course_item_icon_wrap">
+                    <div class="course_item_icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a class="course_item" href="#">
+                <div class="course_item_wrap">
+                  <h3>
+                    <span>একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স</span>
+                  </h3>
+                  <div class="course_item_text">
+                    আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে।
+                  </div>
+                  <div class="course_item_icon_wrap">
+                    <div class="course_item_icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              <a class="course_item" href="#">
+                <div class="course_item_wrap">
+                  <h3>
+                    <span>একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স</span>
+                  </h3>
+                  <div class="course_item_text">
+                    আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে।
+                  </div>
+                  <div class="course_item_icon_wrap">
+                    <div class="course_item_icon">
+                      <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="home_char_section">
+        <div class="basic_paddings">
+          <div class="container">
+            <div class="section_content__row reverse">
+              <div class="section_content__col">
+                <div class="section_content__col__img">
+                  <div class="section_content__col__img__text">
+                    <ul class="home_characteristics">
+                      <li>সালাফে সালেহীনের আক্বীদা ও মানহাজ প্রচার-প্রসারে বদ্ধপরিকর</li>
+                      <li>ইসলামী শিক্ষা ও প্রশিক্ষণের ক্ষেত্রে দেশ-বিদেশের বরেণ্য ওলামা-মাশায়েখ ও স্কলার দ্বারা পাঠদান</li>
+                      <li>মাল্টিমিডিয়া সম্পন্ন ডিজিটাল ক্লাসরুম</li>
+                      <li>সালাফে সালেহীনের আক্বীদা ও মানহাজ প্রচার-প্রসারে বদ্ধপরিকর</li>
+                      <li>ইসলামী শিক্ষা ও প্রশিক্ষণের ক্ষেত্রে দেশ-বিদেশের বরেণ্য ওলামা-মাশায়েখ ও স্কলার দ্বারা পাঠদান</li>
+                      <li>মাল্টিমিডিয়া সম্পন্ন ডিজিটাল ক্লাসরুম</li>
+                      <li>সালাফে সালেহীনের আক্বীদা ও মানহাজ প্রচার-প্রসারে বদ্ধপরিকর</li>
+                      <li>ইসলামী শিক্ষা ও প্রশিক্ষণের ক্ষেত্রে দেশ-বিদেশের বরেণ্য ওলামা-মাশায়েখ ও স্কলার দ্বারা পাঠদান</li>
+                      <li>মাল্টিমিডিয়া সম্পন্ন ডিজিটাল ক্লাসরুম</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="section_content__col text">
+                <div class="section_content__text_wrap">
+                  <p class="section_content__text1">
+                    কুল্লিয়াতুল কুরআনিল<br>
+                    কারীম-এর বৈশিষ্ট্য
+                  </p>
+                  <!-- <p class="section_content__text2">
+                শিক্ষাবিহীন জাতি অনুন্নত এবং অবিকশিত। তাই কোন জাতির বিকাশ ও উন্নয়নের জন্য শিক্ষার ভূমিকা অপরিহার্য। ফলে যে শিক্ষা-আদর্শে মানবজাতির সর্বাঙ্গীণ কল্যাণ রয়েছে মূলত সেটিই সর্বকালের সর্বশ্রেষ্ঠমানব মুহাম্মদ (সল্লাল্লাহ আলাইহি ওয়া সাল্লাম) সমগ্র বিশ্ববাসীর জন্য উপহার দিয়ে গেছেন; যা সর্বজন স্বীকৃত।
+              </p> -->
+                  <!-- <a class="link" href="">বিস্তারিত দেখুন</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="faqs_root">
+        <div class="container">
+          <div class="basic_paddings">
+            <div class="home_section__title1">প্রায়শই জিজ্ঞাসিত প্রশ্ন</div>
+            <div class="faqs_inner">
+              <div class="faqs_item">
+                <div class="faqs_panel faqs_active">
+                  <button class="faqs_label">আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি?</button>
+                  <div class="faqs_desc">
+                    <p class="faqs_text"><span>আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে। <a href="/donate">ডোনেট</a>, use a card or PayPal account.</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="faqs_item">
+                <div class="faqs_panel">
+                  <button class="faqs_label">আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি?</button>
+                  <div class="faqs_desc">
+                    <p class="faqs_text"><span>আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে। "<a href="#" target="_blank">আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে?</a>".</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="faqs_item">
+                <div class="faqs_panel">
+                  <button class="faqs_label">আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা?</button>
+                  <div class="faqs_desc">
+                    <p class="faqs_text"><span>আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে। দয়া করে <a href="/contact">আমাদের সাথে যোগাযোগ করুন</a>, আপনার আরও কিছু জিজ্ঞাসা থাকলে।</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="faqs_item">
+                <div class="faqs_panel">
+                  <button class="faqs_label">আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা?</button>
+                  <div class="faqs_desc">
+                    <p class="faqs_text"><span>আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে। আরবি ভাষায় দক্ষতা অর্জনের লক্ষ্যে কুল্লিয়াতুল কুরআনিল কারীম-এর আরবি ভাষা ইনস্টিটিউট ‘দাওরাতুল লুগা আল-আরাবিয়্যাহ লিল আগরাদ আল-একাডেমিয়্যাহ' (একাডেমিক অ্যারাবিক ল্যাঙ্গুয়েজ কোর্স) অফার করেছে।</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="get_touch" class="home_get_touch">
+        <div class="vertical_paddings">
+          <div class="container">
+            <div class="section_content__col text">
+              <div class="section_content__text_wrap">
+                <h2 class="home_section__title1 get_touch_title">আমাদের সাথে থাকুন</h2>
+                <p>
+                  ‘কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ’ বিশুদ্ধ ধারার একটি উচ্চতর ইসলামী শিক্ষা, প্রশিক্ষণ ও গবেষণা প্রতিষ্ঠান। এতে থাকছে সানাবিয়্যাহ (হায়ার সেকেন্ডারি) ও কুল্লিয়া (ব্যাচেলর) পর্যায়ের শিক্ষা ব্যবস্থা। আরো রয়েছে শিক্ষক প্রশিক্ষণ কোর্স এবং বিভিন্ন শ্রেণী-পেশার লোকদের জন্য আরবি ভাষা কোর্স। এবং গুরুত্বপূর্ণ একাধিক বিষয়ের ওপর ডিপ্লোমা ও সার্টিফিকেট কোর্স।
+                </p>
+                <div class="get_touch_btn">
+                  <a href="#" class="btn btn--primary">
+                    যোগাযোগ করুন
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+    <footer class="footer footer_primary">
+      <div class="container">
+        <div class="footer_row footer_row_primary">
+          <div class="footer_menu_col">
+            <h2 class="footer_menu_heading">নিরাপত্তা এবং ব্র্যান্ড</h2>
+            <nav class="footer_nav">
+              <ul class="footer_nav_list">
+                <li class="footer_nav_item">
+                  <a href="#">কপিরাইট লঙ্ঘনের প্রতিবেদন করুন</a>
+                </li>
+                <li class="footer_nav_item">
+                  <a href="#">নিরাপত্তা সমস্যা রিপোর্ট করুন</a>
+                </li>
+                <li class="footer_nav_item">
+                  <a href="#">ট্রেডমার্ক বিজ্ঞপ্তি</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="footer_menu_col">
+            <h2 class="footer_menu_heading">ওয়েবসাইট</h2>
+            <nav class="footer_nav">
+              <ul class="footer_nav_list">
+                <li class="footer_nav_item">
+                  <a href="#">প্রবেশযোগ্যতা</a>
+                </li>
+                <li class="footer_nav_item">
+                  <a href="#">ডিজিটাল প্রবেশযোগ্যতা</a>
+                </li>
+                <li class="footer_nav_item">
+                  <a href="#">গোপনীয়তা বিবৃতি</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="footer_menu_col">
+            <h2 class="footer_menu_heading">যোগাযোগ</h2>
+            <nav class="footer_nav">
+              <ul class="footer_nav_list">
+                <li class="footer_nav_item">
+                  <a href="#">কুল্লিয়াতুলের সাথে যোগাযোগ করুন</a>
+                </li>
+                <li class="footer_nav_item">
+                  <a href="#">মানচিত্র এবং দিকনির্দেশ</a>
+                </li>
+                <li class="footer_nav_item">
+                  <a href="#">চাকরি</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="footer_row footer_row_secondary">
+          <div class="footer_copyright">
+            <p>&copy; ২০২৩ সর্বস্বত্ব সংরক্ষিত</p>
+          </div>
+          <div class="footer_logo">
+            <a href="/">
+              <img src="img/logo/logo.png" alt="">
+            </a>
+          </div>
+          <div class="footer_social">
+            <div class="social_follow">
+              <ul class="social_follow_list">
+                <li class="social_follow_item facebook">
+                  <a href="#" class="social_follow_anchor" rel="me noopener" title="Facebook" target="_blank">
+                    <span>ফেসবুক</span>
+                  </a>
+                </li>
+                <li class="social_follow_item twitter">
+                  <a href="#" class="social_follow_anchor" rel="me noopener" title="Twitter" target="_blank">
+                    <span>টুইটার</span>
+                  </a>
+                </li>
+                <!-- <li class="social_follow_item instagram">
+              <a href="#" class="social_follow_anchor" rel="me noopener" title="Instagram" target="_blank">
+                <span>ইন্সটাগ্রাম</span>
+              </a>
+            </li> -->
+                <li class="social_follow_item youtube">
+                  <a href="#" class="social_follow_anchor" rel="me noopener" title="YouTube" target="_blank">
+                    <span>ইউটিউব</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <!-- main viewport end -->
+
+  <script src="vendor/jquery/jquery-3.6.0.min.js"></script>
+  <script src="vendor/gsap/gsap.min.js"></script>
+  <script src="vendor/gsap/ScrollTrigger.min.js"></script>
+  <!-- <script type="text/javascript" data-mutate-approach="sync" src="https://kit.fontawesome.com/6219da6e02.js"></script> -->
+  <!-- <script src="vendor/fontawesome/js/all.min.js"></script> -->
+  <script src="vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="js/script.min.js"></script>
+
+</body>
+
+</html>
