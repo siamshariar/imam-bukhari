@@ -1,7 +1,8 @@
 export default function TitleListBlock({ title, lists, apiData }) {
   // Use API data if available, otherwise use static props
   const finalTitle = apiData?.title || title;
-  const finalLists = apiData?.items ? apiData.items.map(item => item.item) : lists;
+  const apiItems = apiData?.items?.map(item => item.item).filter(Boolean);
+  const finalLists = apiItems && apiItems.length > 0 ? apiItems : lists;
 
   return (
     <div className="titleListBlock">

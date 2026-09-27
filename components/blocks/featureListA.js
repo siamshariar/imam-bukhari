@@ -8,12 +8,18 @@ export default function FeatureList({ title, para, list, mosqueComplexData, apiD
   
   // Handle different data structures
   let finalList = list;
-  if (characteristicsData?.items) {
+  const characteristicsItems = characteristicsData?.items
+    ?.map(item => item.title)
+    .filter(Boolean);
+  const complexItems = complexData?.items
+    ?.map(item => item.title)
+    .filter(Boolean);
+  if (characteristicsItems && characteristicsItems.length > 0) {
     // For characteristics data - use title from items
-    finalList = characteristicsData.items.map(item => item.title);
-  } else if (complexData?.items) {
+    finalList = characteristicsItems;
+  } else if (complexItems && complexItems.length > 0) {
     // For mosque complex data - use title from items
-    finalList = complexData.items.map(item => item.title);
+    finalList = complexItems;
   }
 
   return (

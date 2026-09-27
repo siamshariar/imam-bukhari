@@ -4,7 +4,8 @@ export default function FeatureList({ title, para, list, mosqueComplexData }) {
   
   const finalTitle = apiData?.title || title;
   const finalPara = apiData?.details || para;
-  const finalList = apiData?.items ? apiData.items.map(item => item.title) : list;
+  const apiList = apiData?.items?.map(item => item.title).filter(Boolean);
+  const finalList = apiList && apiList.length > 0 ? apiList : list;
 
   return (
     <div className="featureList">
