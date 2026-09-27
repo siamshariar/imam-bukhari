@@ -61,7 +61,7 @@ export default function Message({ chairmanMessage }) {
                                 dir={isRtl ? "rtl" : "ltr"}
                                 style={{
                                   textAlign: isRtl ? "right" : "left",
-                                  marginTop: isSignatureStart ? "1.5rem" : 0,
+                                  marginTop: isSignatureStart ? "1.2rem" : 0,
                                 }}
                               >
                                 {item.children?.map((child, childIndex) => (
