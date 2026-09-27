@@ -49,12 +49,20 @@ export default function Message({ chairmanMessage }) {
                             const isRtl = item.children?.some((child) =>
                               /[؀-ۿ]/.test(child.text)
                             );
+                            const text = item.children
+                              ?.map((child) => child.text)
+                              .join("")
+                              .trim();
+                            const isSignatureStart = text === "বিনীত";
                             return (
                               <p
                                 key={index}
                                 className="content_page_bottom"
                                 dir={isRtl ? "rtl" : "ltr"}
-                                style={{ textAlign: isRtl ? "right" : "left" }}
+                                style={{
+                                  textAlign: isRtl ? "right" : "left",
+                                  marginTop: isSignatureStart ? "1.5rem" : 0,
+                                }}
                               >
                                 {item.children?.map((child, childIndex) => (
                                   <span key={childIndex}>{child.text}</span>
