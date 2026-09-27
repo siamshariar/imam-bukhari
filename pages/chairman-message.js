@@ -38,6 +38,14 @@ export default function Message({ chairmanMessage }) {
                   <div>
                       {Array.isArray(chairmanMessage?.description)
                         ? chairmanMessage.description.map((item, index) => {
+                            const isBlank = item.children?.every(
+                              (child) => !child.text?.trim()
+                            );
+                            if (isBlank) {
+                              return (
+                                <div key={index} style={{ height: "1rem" }} />
+                              );
+                            }
                             const isRtl = item.children?.some((child) =>
                               /[؀-ۿ]/.test(child.text)
                             );
