@@ -56,6 +56,7 @@ export default function Message({ chairmanMessage }) {
                                 .join("")
                                 .trim();
                               const isSignatureStart = text === "বিনীত";
+                              const wasAlreadyInSignature = inSignature;
                               if (isSignatureStart) inSignature = true;
                               const isSignatureLine = inSignature;
                               return (
@@ -65,8 +66,12 @@ export default function Message({ chairmanMessage }) {
                                   dir={isRtl ? "rtl" : "ltr"}
                                   style={{
                                     textAlign: isRtl ? "right" : "left",
-                                    marginTop: isSignatureStart ? "1.2rem" : 0,
-                                    lineHeight: isSignatureLine ? 1.6 : undefined,
+                                    marginTop: isSignatureStart
+                                      ? "1.3rem"
+                                      : wasAlreadyInSignature
+                                      ? "-2px"
+                                      : 0,
+                                    lineHeight: isSignatureLine ? 1.75 : undefined,
                                   }}
                                 >
                                   {item.children?.map((child, childIndex) => (
