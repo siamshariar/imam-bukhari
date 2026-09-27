@@ -13,15 +13,20 @@ import HomeCharacteristics from "../components/pages/home/Characteristics";
 import BlockA from "../components/blocks/blockA";
 import BlockB from "../components/blocks/blockB";
 import BlockC from "../components/blocks/blockC";
-import { getAboutContent, getImamBukhariMasjid, getKulliyatulIslamia, getDarulHadis, getAllCharacteristics, getMenu, filterMetaInfo, getOurProjectsData, getInfrastructureModelData } from "../lib/fetch3";
+import { getAboutPageData, getMenu, filterMetaInfo } from "../lib/fetch3";
 import {blockAData, blockAData2, blockAData3, imageTitleTopSliderData1} from "../data/block";
 import ImageTitleTopSlider from "../components/sliders/imageTitleTopSlider";
 
-export default function About({ aboutData, imamBukhariMasjid, kulliyatulIslamia, darulHadis, characteristics, pageInfo, ourProjectsData, infrastructureModelData }) {
-  // Extract individual projects from the API data
-  const project1 = ourProjectsData?.find(p => p.id === 1);
-  const project2 = ourProjectsData?.find(p => p.id === 2);
-  const project3 = ourProjectsData?.find(p => p.id === 3);
+export default function About({ aboutPageData, pageInfo }) {
+  const {
+    aboutData,
+    imamBukhariMasjid,
+    kulliyatulIslamia,
+    darulHadis,
+    characteristics,
+    infrastructureModelData,
+  } = aboutPageData || {};
+
   return (
     <>
       <Meta
@@ -45,26 +50,26 @@ export default function About({ aboutData, imamBukhariMasjid, kulliyatulIslamia,
           <div className="textBlock" style={{backgroundColor: `#edece9`}}>
               <h2 style={{marginBottom: `0px`}}>আমাদের প্রকল্পসমূহ</h2>
           </div>
-          <BlockA 
-            imamBukhariMasjid={project1 || imamBukhariMasjid} 
+          <BlockA
+            imamBukhariMasjid={imamBukhariMasjid}
             data={{
               ...blockAData,
-              images: project1?.images || blockAData.images
-            }} 
+              images: imamBukhariMasjid?.images?.length ? imamBukhariMasjid.images : blockAData.images
+            }}
           />
-          <BlockB 
-            kulliyatulIslamia={project2 || kulliyatulIslamia} 
+          <BlockB
+            kulliyatulIslamia={kulliyatulIslamia}
             data={{
               ...blockAData2,
-              images: project2?.images || blockAData2.images
-            }} 
+              images: kulliyatulIslamia?.images?.length ? kulliyatulIslamia.images : blockAData2.images
+            }}
           />
-          <BlockC 
-            darulHadis={project3 || darulHadis} 
+          <BlockC
+            darulHadis={darulHadis}
             data={{
               ...blockAData3,
-              images: project3?.images || blockAData3.images
-            }} 
+              images: darulHadis?.images?.length ? darulHadis.images : blockAData3.images
+            }}
           />
 
         {/*<AboutMou />*/}
@@ -87,28 +92,15 @@ export default function About({ aboutData, imamBukhariMasjid, kulliyatulIslamia,
 }
 
 export async function getStaticProps(context) {
-  // const playlists = await getAllPlaylists2();
   const menuItems = await getMenu();
   const pageInfo = await filterMetaInfo(menuItems, 'about');
-  const aboutData = await getAboutContent();
-  const imamBukhariMasjid = await getImamBukhariMasjid();
-  const kulliyatulIslamia = await getKulliyatulIslamia();
-  const darulHadis = await getDarulHadis();
-  const characteristics = await getAllCharacteristics();
-  const ourProjectsData = await getOurProjectsData();
-  const infrastructureModelData = await getInfrastructureModelData();
+  const aboutPageData = await getAboutPageData();
 
   return {
     props: {
       menuItems,
       pageInfo,
-      aboutData,
-      imamBukhariMasjid,
-      kulliyatulIslamia,
-      darulHadis,
-      characteristics,
-      ourProjectsData,
-      infrastructureModelData,
+      aboutPageData,
     },
     revalidate: 60,
   };

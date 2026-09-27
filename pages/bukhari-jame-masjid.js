@@ -18,10 +18,17 @@ import BlockA from "../components/blocks/blockD";
 import { blockAData4, featureListData1 } from "../data/block";
 import featureList from "../components/blocks/featureList";
 import FeatureList from "../components/blocks/featureList";
-import { getAboutShortContent, getImamBukhariDetailData, getMosqueProjectSummaryData, getMosqueMainActivitiesData, getMosqueComplexData, getMenu, filterMetaInfo } from "../lib/fetch3";
+import { getAboutShortContent, getMosqueComplexPageData, getMenu, filterMetaInfo } from "../lib/fetch3";
 import { getSettings } from "../lib/apiV/settings";
 
-export default function MasjidComplex({ aboutContent, imamBukhariDetailData, mosqueProjectSummaryData, mosqueMainActivitiesData, mosqueComplexData, logo, favicon, pageInfo }) {
+export default function MasjidComplex({ aboutContent, mosqueComplexPageData, logo, favicon, pageInfo }) {
+  const {
+    imamBukhariDetailData,
+    mosqueProjectSummaryData,
+    mosqueMainActivitiesData,
+    mosqueComplexData,
+  } = mosqueComplexPageData || {};
+
   return (
     <>
       <Meta
@@ -71,10 +78,7 @@ export default function MasjidComplex({ aboutContent, imamBukhariDetailData, mos
 
 export async function getStaticProps(context) {
   const aboutContent = await getAboutShortContent();
-  const imamBukhariDetailData = await getImamBukhariDetailData();
-  const mosqueProjectSummaryData = await getMosqueProjectSummaryData();
-  const mosqueMainActivitiesData = await getMosqueMainActivitiesData();
-  const mosqueComplexData = await getMosqueComplexData();
+  const mosqueComplexPageData = await getMosqueComplexPageData();
   const settings = await getSettings();
   const menuItems = await getMenu();
   const pageInfo = await filterMetaInfo(menuItems, 'bukhari-jame-masjid');
@@ -82,10 +86,7 @@ export async function getStaticProps(context) {
   return {
     props: {
       aboutContent,
-      imamBukhariDetailData,
-      mosqueProjectSummaryData,
-      mosqueMainActivitiesData,
-      mosqueComplexData,
+      mosqueComplexPageData,
       logo: settings?.logo || null,
       favicon: settings?.favicon || null,
       menuItems,

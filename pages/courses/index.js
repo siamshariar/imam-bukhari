@@ -1,5 +1,4 @@
-import { getAllCourses } from "../../lib/fetch2";
-import { getMenu, filterMetaInfo } from "../../lib/fetch3";
+import { getAllCourses, getMenu, filterMetaInfo } from "../../lib/fetch3";
 import { server } from "../../lib/config";
 import Meta from "../../components/core/Meta";
 import Banner from "../../components/ui/BannerPrimary";

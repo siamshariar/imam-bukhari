@@ -1,5 +1,4 @@
-import { getAdvisoryCouncils } from "../lib/fetch2";
-import { getMenu, filterMetaInfo } from "../lib/fetch3";
+import { getAdvisoryCouncils, getMenu, filterMetaInfo } from "../lib/fetch3";
 import { server } from "../lib/config";
 import Meta from "../components/core/Meta";
 import Banner from "../components/ui/BannerPrimary";
@@ -25,12 +24,12 @@ export default function advisoryCouncilList({advisoryCouncils = [], pageInfo}) {
         <section id="members" className="properties">
           <div className="container">
             {advisoryCouncils &&
-            advisoryCouncils.map(({ name, excerpt }) => (
-              <div className="properties_wrapper col12">
+            advisoryCouncils.map(({ id, name, designation }) => (
+              <div className="properties_wrapper col12" key={id}>
                   <div className="ex-com-item_full">
                       <h3 class="m0">{name}</h3>
-                      <h4>{excerpt}</h4>
-                    
+                      <h4>{designation}</h4>
+
                   </div>
               </div>
             ))}

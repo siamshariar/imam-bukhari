@@ -20,9 +20,7 @@ export default function HomeSubscription({ bgColor }) {
                 সার্টিফিকেট কোর্স।
               </p>
               <div className="get_touch_btn">
-                <Link href="/contact">
-                  <a className="btn btn--primary">যোগাযোগ করুন</a>
-                </Link>
+                <Link href="/contact" className="btn btn--primary">যোগাযোগ করুন</Link>
               </div>
             </div>
           </div>

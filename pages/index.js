@@ -1,8 +1,4 @@
-import {
-  getHomeCourses,
-  getAdvisoryCouncils,
-} from "../lib/fetch2";
-import { getHomeBannerData, getAboutShortContent, getImamBukhariMasjid, getKulliyatulIslamia, getDarulHadis, getChairmanMessage, getMembers, getHomeFaqs, getOurProjectsData, getRecentActivitiesData, getHomeSliderData, getMenu, filterMetaInfo } from "../lib/fetch3";
+import { getHomePageData, getHomeFaqs, getMenu, filterMetaInfo } from "../lib/fetch3";
 import { getSettings } from "../lib/apiV/settings";
 import Meta from "../components/core/Meta";
 import HomeBanner from "../components/pages/home/Banner";
@@ -37,20 +33,20 @@ import Newsletter from "../components/blocks/newsletter";
 import IframeVideo from "../components/blocks/iframeVideo";
 import parse from "html-react-parser";
 
-export default function Home({ bannerData, aboutContent, imamBukhariMasjid, kulliyatulIslamia, darulHadis, chairmanMessage, members, courses, faqs, advisoryCouncils, ourProjectsData, recentActivitiesData, homeSliderData, logo, favicon, pageInfo }) {
-  // Extract individual projects from the API data
-  const project1 = ourProjectsData?.find(p => p.id === 1);
-  const project2 = ourProjectsData?.find(p => p.id === 2);
-  const project3 = ourProjectsData?.find(p => p.id === 3);
-  
-  // Debug logo and favicon
-  console.log('Home page - Logo:', logo);
-  console.log('Home page - Favicon:', favicon);
-  
-  // Debug FAQs
-  console.log('Home page - FAQs received:', faqs);
-  console.log('Home page - Number of FAQs:', faqs?.length);
-  
+export default function Home({ homePageData, faqs, logo, favicon, pageInfo }) {
+  const {
+    banner: bannerData,
+    aboutShortText: aboutContent,
+    mosqueComplexCard,
+    kulliyaCard,
+    darulHadithCard,
+    founderMessage: chairmanMessage,
+    introVideo,
+    recentActivities,
+    academicCommittee,
+    slider: homeSliderData,
+  } = homePageData || {};
+
   return (
     <>
       <Meta
@@ -72,34 +68,38 @@ export default function Home({ bannerData, aboutContent, imamBukhariMasjid, kull
         <div className="textBlock" style={{backgroundColor: `#edece9`}}>
           <h2 style={{marginBottom: `0px`}}>আমাদের প্রকল্পসমূহ</h2>
         </div>
-        <BlockA 
-          imamBukhariMasjid={project1 || imamBukhariMasjid} 
+        <BlockA
+          imamBukhariMasjid={mosqueComplexCard}
           data={{
             ...blockAData,
-            images: project1?.images || blockAData.images
-          }} 
+            images: mosqueComplexCard?.images?.length ? mosqueComplexCard.images : blockAData.images
+          }}
         />
-        <BlockB 
-          kulliyatulIslamia={project2 || kulliyatulIslamia} 
+        <BlockB
+          kulliyatulIslamia={kulliyaCard}
           data={{
             ...blockAData2,
-            images: project2?.images || blockAData2.images
-          }} 
+            images: kulliyaCard?.images?.length ? kulliyaCard.images : blockAData2.images
+          }}
         />
-        <BlockC 
-          darulHadis={project3 || darulHadis} 
+        <BlockC
+          darulHadis={darulHadithCard}
           data={{
             ...blockAData3,
-            images: project3?.images || blockAData3.images
-          }} 
+            images: darulHadithCard?.images?.length ? darulHadithCard.images : blockAData3.images
+          }}
         />
-        <IframeVideo {...iframeVideoData1} />
+        <IframeVideo
+          title={introVideo?.title || iframeVideoData1.title}
+          videoId={introVideo?.videoId || iframeVideoData1.videoId}
+        />
 
         <HomeQuote chairmanMessage={chairmanMessage}/>
-        {/* <HomeMembers members={members} title="একাডেমিক কমিটির সম্মানিত সদস্যবৃন্দ" /> */}
+        {academicCommittee?.showOnHome && (
+          <HomeMembers members={academicCommittee.members} title={academicCommittee.title} />
+        )}
 
-        <ImageTextSlider data={recentActivitiesData || imageTextSliderData1} />
-        {/* <TeachersList members={members} title="একাডেমিক কমিটি" /> */}
+        <ImageTextSlider data={recentActivities || imageTextSliderData1} />
         {/* <HomeCourses courses={courses} /> */}
         {/* <HomeCharacteristics /> */}
         {/* <AboutMou /> */}
@@ -122,32 +122,8 @@ export default function Home({ bannerData, aboutContent, imamBukhariMasjid, kull
 }
 
 export async function getStaticProps(context) {
-  // const images = await getOptHomeImages();
-  // // const blogs = await getOptHomeBlogs();
-  // const lectures = await getHomeLectures();
-  // const quotes = await getOptHomeQuotes();
-  // // const books = await getOptHomeBooks();
-  // const organizations = await getHomeOrganizations();
-  // const articles = await getHomeArticles();
-  // // const articles = await getArticles()
-  // const papers = await getHomePapers();
-  // const playlists = await getAllPlaylists2();
-  // const posts4 = await getHome3Posts4();
-  // const organizations2 = await getHomeOrganizations();
-  // const books = await getHomeBooks();
-  const bannerData = await getHomeBannerData();
-  const aboutContent = await getAboutShortContent();
-  const imamBukhariMasjid = await getImamBukhariMasjid();
-  const kulliyatulIslamia = await getKulliyatulIslamia();
-  const darulHadis = await getDarulHadis();
-  const chairmanMessage = await getChairmanMessage();
-  const members = await getMembers();
-  const advisoryCouncils = await getAdvisoryCouncils();
-  const courses = await getHomeCourses();
+  const homePageData = await getHomePageData();
   const faqs = await getHomeFaqs();
-  const ourProjectsData = await getOurProjectsData();
-  const recentActivitiesData = await getRecentActivitiesData();
-  const homeSliderData = await getHomeSliderData();
   const settings = await getSettings();
   const menuItems = await getMenu();
   const pageInfo = await filterMetaInfo(menuItems, 'home');
@@ -156,29 +132,8 @@ export async function getStaticProps(context) {
     props: {
       menuItems,
       pageInfo,
-      // images,
-      // lectures,
-      // quotes,
-      // organizations,
-      // articles,
-      // papers,
-      // playlists: playlists.playlists,
-      // organizations2,
-      // posts4,
-      // books,
-      bannerData,
-      aboutContent,
-      imamBukhariMasjid,
-      kulliyatulIslamia,
-      darulHadis,
-      chairmanMessage,
-      members,
-      courses,
+      homePageData,
       faqs,
-      advisoryCouncils,
-      ourProjectsData,
-      recentActivitiesData,
-      homeSliderData,
       logo: settings?.logo || null,
       favicon: settings?.favicon || null,
     },

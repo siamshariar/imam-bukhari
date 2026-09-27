@@ -5,13 +5,30 @@ import Banner from "../components/ui/BannerPrimary";
 import BannerContact from "../components/ui/BannerContact";
 import CharSection from "../components/ui/CharSection";
 import HomeSubscription from "../components/pages/home/Subscription";
+import { getAdmissionInformation } from "../lib/fetch3";
 
-export default function AdmissionPage() {
+const fallbackChars = [
+  "শিক্ষার্থীকে অবশ্যই চরিত্রবান ও আদবকায়দা সম্পন্ন হতে হবে।",
+  "কুল্লিয়ার নিয়ম-কানুন ও সকল নির্দেশনা মেনে চলতে হবে।",
+  "পূর্ণকালীন শিক্ষার্থী হিসেবে ভর্তি চলতে হবে।",
+  "ভর্তি পরীক্ষায় উত্তীর্ণ হতে হবে।",
+  "ক্লাসে শতভাগ উপস্থিত নিশ্চিত করতে হবে।",
+  "পূর্ববর্তী সকল সনদপত্র ও নম্বরপত্র সত্যায়ন করে আবেদন পত্রের সাথে জমা দিতে হবে।",
+  "সনদসহ সকল কাগজপত্র অন-লাইন আবেদনের সাথে সংযুক্ত করে পাঠাতে হবে।",
+  "সানাবিয়্যাহ বিভাগে ভর্তির জন্য দাখিল/মেশকাত/এসএসসি পাশ হতে হবে।",
+  "কুল্লিয়া স্তরে ভর্তির জন্য সানাবিয়্যাহ/আলিম/এইচএসসি পাশ হতে হবে।",
+  "আরবি ভাষায় যথেষ্ট দক্ষতা না থাকলে প্রয়োজনানুযায়ী আরবি ভাষা কোর্স করা বাধ্যতামূলক।",
+  "কুল্লিয়া কর্তৃক নির্ধারিত সকল শর্ত মেনে চলতে হবে।",
+];
+
+export default function AdmissionPage({ admissionInformation }) {
+  const informations = admissionInformation?.informations;
+
   return (
     <>
       <Meta
         title="ভর্তি তথ্য"
-        description="ভর্তির শর্তাবলী কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ"
+        description="ভর্তির শর্তাবলী কুল্লিয়াতুল কুরআনিল কারীম ওয়াদ-দিরাসাতিল ইসলামিয়্যাহ"
         url={`${server}/admission`}
         image={`${server}/img/logo/logo.png`}
         type="website"
@@ -28,23 +45,22 @@ export default function AdmissionPage() {
               <div className="center-line"></div>
               <div className="basic_paddings">
                   <div className="container">
-                      <CharSection
-                          reverse={true}
-                          title="ভর্তির শর্তাবলী"
-                          chars={[
-                              "শিক্ষার্থীকে অবশ্যই চরিত্রবান ও আদবকায়দা সম্পন্ন হতে হবে।",
-                              "কুল্লিয়ার নিয়ম-কানুন ও সকল নির্দেশনা মেনে চলতে হবে।",
-                              "পূর্ণকালীন শিক্ষার্থী হিসেবে ভর্তি চলতে হবে।",
-                              "ভর্তি পরীক্ষায় উত্তীর্ণ হতে হবে।",
-                              "ক্লাসে শতভাগ উপস্থিত নিশ্চিত করতে হবে।",
-                              "পূর্ববর্তী সকল সনদপত্র ও নম্বরপত্র সত্যায়ন করে আবেদন পত্রের সাথে জমা দিতে হবে।",
-                              "সনদসহ সকল কাগজপত্র অন-লাইন আবেদনের সাথে সংযুক্ত করে পাঠাতে হবে।",
-                              "সানাবিয়্যাহ বিভাগে ভর্তির জন্য দাখিল/মেশকাত/এসএসসি পাশ হতে হবে।",
-                              "কুল্লিয়া স্তরে ভর্তির জন্য সানাবিয়্যাহ/আলিম/এইচএসসি পাশ হতে হবে।",
-                              "আরবি ভাষায় যথেষ্ট দক্ষতা না থাকলে প্রয়োজনানুযায়ী আরবি ভাষা কোর্স করা বাধ্যতামূলক।",
-                              "কুল্লিয়া কর্তৃক নির্ধারিত সকল শর্ত মেনে চলতে হবে।",
-                          ]}
-                      />
+                      {informations?.length > 0 ? (
+                        informations.map((info) => (
+                          <CharSection
+                            key={info.id}
+                            reverse={true}
+                            title={info.title || "ভর্তির শর্তাবলী"}
+                            chars={info.listItem}
+                          />
+                        ))
+                      ) : (
+                        <CharSection
+                            reverse={true}
+                            title="ভর্তির শর্তাবলী"
+                            chars={fallbackChars}
+                        />
+                      )}
 
                   </div>
               </div>
@@ -57,12 +73,13 @@ export default function AdmissionPage() {
   );
 }
 
-// export async function getStaticProps(context) {
-//   const playlists = await getAllPlaylists2();
+export async function getStaticProps(context) {
+  const admissionInformation = await getAdmissionInformation();
 
-//   return {
-//     props: {
-//       playlists: playlists.playlists,
-//     },
-//   };
-// }
+  return {
+    props: {
+      admissionInformation,
+    },
+    revalidate: 60,
+  };
+}

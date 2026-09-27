@@ -14,10 +14,16 @@ import featureList from "../components/blocks/featureList";
 import { featureListData2 } from "../data/block";
 import FeatureList from "../components/blocks/featureListA";
 import BlockA from "../components/blocks/blockA";
-import { getAboutShortContent, getDarulHadithMadrasaData, getDarulHadithSummaryData, getMenu, filterMetaInfo } from "../lib/fetch3";
-import { getDarulHadithCurriculumData, getDarulHadithCharacteristicsData } from "../lib/apiV/aboutmou";
+import { getAboutShortContent, getDarulHadithPageData, getMenu, filterMetaInfo } from "../lib/fetch3";
 
-export default function MadrasaComplex({ aboutContent, darulHadithData, darulHadithSummaryData, darulHadithCurriculumData, darulHadithCharacteristicsData, pageInfo }) {
+export default function MadrasaComplex({ aboutContent, darulHadithPageData, pageInfo }) {
+  const {
+    darulHadithData,
+    darulHadithSummaryData,
+    darulHadithCurriculumData,
+    darulHadithCharacteristicsData,
+  } = darulHadithPageData || {};
+
   // Transform API data to expected format for textBlockD
   const transformedAboutContent = darulHadithData ? [
     {
@@ -75,20 +81,14 @@ export default function MadrasaComplex({ aboutContent, darulHadithData, darulHad
 
 export async function getStaticProps(context) {
   const aboutContent = await getAboutShortContent();
-  const darulHadithData = await getDarulHadithMadrasaData();
-  const darulHadithSummaryData = await getDarulHadithSummaryData();
-  const darulHadithCurriculumData = await getDarulHadithCurriculumData();
-  const darulHadithCharacteristicsData = await getDarulHadithCharacteristicsData();
+  const darulHadithPageData = await getDarulHadithPageData();
   const menuItems = await getMenu();
   const pageInfo = await filterMetaInfo(menuItems, 'darul-hadith-arabic-madrasa');
 
   return {
     props: {
       aboutContent,
-      darulHadithData,
-      darulHadithSummaryData,
-      darulHadithCurriculumData,
-      darulHadithCharacteristicsData,
+      darulHadithPageData,
       menuItems,
       pageInfo,
     },

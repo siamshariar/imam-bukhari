@@ -27,18 +27,14 @@ const MemberCard = ({ member }) => {
 
     <div className="ex-com-item">
       <div className="ex-com-img">
-        <Link href={`members/${member.slug}`} legacyBehavior>
-          <a>
-            <img src={member.imagePath} alt={member.imageAlt} />
-          </a>
+        <Link href={`members/${member.slug}`}>
+          <img src={member.imagePath} alt={member.imageAlt} />
         </Link>
       </div>
 
       <div className="ex-com-detail">
         <h3>
-          <Link href={`members/${member.slug}`} legacyBehavior>
-            <a>{member.name}</a>
-          </Link>
+          <Link href={`members/${member.slug}`}>{member.name}</Link>
         </h3>
         <h4>{member.excerpt}</h4>
         {/*<ul className="ex-com-social">*/}
