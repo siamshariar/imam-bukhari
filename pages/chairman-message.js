@@ -36,41 +36,47 @@ export default function Message({ chairmanMessage }) {
                 <div className="member-detail-right">
                   <div className="content_page_detail">
                   <div>
-                      {Array.isArray(chairmanMessage?.description)
-                        ? chairmanMessage.description.map((item, index) => {
-                            const isBlank = item.children?.every(
-                              (child) => !child.text?.trim()
-                            );
-                            if (isBlank) {
-                              return (
-                                <div key={index} style={{ height: "1rem" }} />
+                      {(() => {
+                        let inSignature = false;
+                        return Array.isArray(chairmanMessage?.description)
+                          ? chairmanMessage.description.map((item, index) => {
+                              const isBlank = item.children?.every(
+                                (child) => !child.text?.trim()
                               );
-                            }
-                            const isRtl = item.children?.some((child) =>
-                              /[؀-ۿ]/.test(child.text)
-                            );
-                            const text = item.children
-                              ?.map((child) => child.text)
-                              .join("")
-                              .trim();
-                            const isSignatureStart = text === "বিনীত";
-                            return (
-                              <p
-                                key={index}
-                                className="content_page_bottom"
-                                dir={isRtl ? "rtl" : "ltr"}
-                                style={{
-                                  textAlign: isRtl ? "right" : "left",
-                                  marginTop: isSignatureStart ? "1.2rem" : 0,
-                                }}
-                              >
-                                {item.children?.map((child, childIndex) => (
-                                  <span key={childIndex}>{child.text}</span>
-                                ))}
-                              </p>
-                            );
-                          })
-                        : "No description available."}
+                              if (isBlank) {
+                                return (
+                                  <div key={index} style={{ height: "1rem" }} />
+                                );
+                              }
+                              const isRtl = item.children?.some((child) =>
+                                /[؀-ۿ]/.test(child.text)
+                              );
+                              const text = item.children
+                                ?.map((child) => child.text)
+                                .join("")
+                                .trim();
+                              const isSignatureStart = text === "বিনীত";
+                              if (isSignatureStart) inSignature = true;
+                              const isSignatureLine = inSignature;
+                              return (
+                                <p
+                                  key={index}
+                                  className="content_page_bottom"
+                                  dir={isRtl ? "rtl" : "ltr"}
+                                  style={{
+                                    textAlign: isRtl ? "right" : "left",
+                                    marginTop: isSignatureStart ? "1.2rem" : 0,
+                                    lineHeight: isSignatureLine ? 1.4 : undefined,
+                                  }}
+                                >
+                                  {item.children?.map((child, childIndex) => (
+                                    <span key={childIndex}>{child.text}</span>
+                                  ))}
+                                </p>
+                              );
+                            })
+                          : "No description available.";
+                      })()}
                     </div>
                   </div>
                 </div>
