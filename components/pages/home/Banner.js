@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { resolveMediaUrl } from "../../../lib/apiV/core";
 
 export default function HomeBanner({ bannerData }) {
-  // Get the banner image URL from the API data
-  const bannerImageUrl = resolveMediaUrl(bannerData?.HomeBanner?.image?.data?.attributes?.url);
+  // getHomePageData() (lib/apiV/homePage.js) already resolves this to a full URL string
+  const bannerImageUrl = bannerData?.image || '';
 
   // Create dynamic styles for the background image
   const bannerStyles = bannerImageUrl ? {
@@ -34,12 +33,12 @@ export default function HomeBanner({ bannerData }) {
               <div className="container home_heading__container">
                 <p className="home_heading__title1">
                   <span>
-                  {bannerData?.HomeBanner?.title || bannerData?.title}
+                  {bannerData?.title}
                   </span>
                 </p>
-                <h1 className="home_heading__lgtitle">{bannerData?.HomeBanner?.subtitle || bannerData?.subtitle}</h1>
+                <h1 className="home_heading__lgtitle">{bannerData?.subtitle}</h1>
                 <p className="home_heading__title3">
-                  {bannerData?.HomeBanner?.message || bannerData?.message}
+                  {bannerData?.message}
                 </p>
                 {/*<Link href="/contact">*/}
                 {/*  <a className="btn btn--secondary contact_us__btn">*/}
