@@ -43,7 +43,6 @@ export default function Home({ homePageData, faqs, logo, favicon, pageInfo }) {
     founderMessage: chairmanMessage,
     introVideo,
     recentActivities,
-    academicCommittee,
     slider: homeSliderData,
   } = homePageData || {};
 
@@ -95,9 +94,6 @@ export default function Home({ homePageData, faqs, logo, favicon, pageInfo }) {
         />
 
         <HomeQuote chairmanMessage={chairmanMessage}/>
-        {academicCommittee?.showOnHome && (
-          <HomeMembers members={academicCommittee.members} title={academicCommittee.title} />
-        )}
 
         <ImageTextSlider data={recentActivities || imageTextSliderData1} />
         {/* <HomeCourses courses={courses} /> */}
