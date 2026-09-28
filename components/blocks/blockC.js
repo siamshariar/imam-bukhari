@@ -11,7 +11,7 @@ export default function BlockC({ data, darulHadis }) {
   const message = darulHadis?.message || darulHadis?.excerpt || "";
   
   // Prioritize API images over static fallback images
-  const apiImages = darulHadis?.sliderImages || [];
+  const apiImages = darulHadis?.images || [];
   const staticImages = images || [];
 
   // Filter out localhost URLs from all images

@@ -11,7 +11,7 @@ export default function BlockB({ data, kulliyatulIslamia }) {
   const message = kulliyatulIslamia?.message || kulliyatulIslamia?.excerpt || "";
   
   // Prioritize API images over static fallback images
-  const apiImages = kulliyatulIslamia?.sliderImages || [];
+  const apiImages = kulliyatulIslamia?.images || [];
   const staticImages = images || [];
 
   // Filter out localhost URLs from all images

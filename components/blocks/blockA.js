@@ -27,8 +27,10 @@ export default function BlockA({ data, imamBukhariMasjid, darulHadithSummaryData
     maxWidth: fullWidth ? "100%" : "1216px",
   };
 
-  // Ensure we have images to display - prioritize API images over static fallback images
-  const apiImages = summaryData.sliderImages || [];
+  // Ensure we have images to display - prioritize API images over static fallback images.
+  // darulHadithSummaryData (toImages() output) uses .sliderImages; imamBukhariMasjid
+  // (toProjectCard() output, used on / and /about) uses .images - support both.
+  const apiImages = summaryData.sliderImages || projectData.images || [];
   const staticImages = images || [];
 
   // Filter out localhost URLs from all images
