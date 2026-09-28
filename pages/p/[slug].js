@@ -93,6 +93,11 @@ export default function NewsPage({subscriptionData, newsData, pageInfo }) {
 export async function getStaticProps({ params }) {
 	const slug = params.slug;
 	const newsData = await getNewpage(slug);
+
+	if (!newsData) {
+		return { notFound: true, revalidate: 60 };
+	}
+
 	const menuItems = await getMenu();
 	const pageInfo = await filterMetaInfo(menuItems, slug);
   const subscriptionData = await getSubscription();
