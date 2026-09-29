@@ -9,7 +9,6 @@ import Meta from '../../components/core/Meta';
 // Import CSS files for Slick
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { apiServer } from '../../lib/config';
 import Banner from '../../components/ui/BannerPrimary';
 import HomeSubscription from "../../components/pages/home/Subscription";
 
@@ -55,7 +54,7 @@ export default function NewsPage({subscriptionData, newsData, pageInfo }) {
           {newsData.coverImage && (
             <div className={styles.coverImage}>
               <img
-                src={`${apiServer}${newsData.coverImage}`}
+                src={newsData.coverImage}
                 alt={newsData.title}
                 layout="fill"
                 objectFit="cover"
@@ -71,7 +70,7 @@ export default function NewsPage({subscriptionData, newsData, pageInfo }) {
                 {newsData.sliderImages.map((image, index) => (
                   <div key={index} className={styles.sliderImageWrapper}>
                     <img
-                      src={`${apiServer}${image}`}
+                      src={image}
                       alt={`Gallery image ${index + 1}`}
                       layout="fill"
                       objectFit="cover"
